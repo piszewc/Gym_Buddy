@@ -1,22 +1,13 @@
-<html>
-    <head>
-        <title>WorkOut Weight</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">WorkOut Weight</a></h1>
-        </div>
+{% extends 'weight_buddy/base.html' %}
 
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My first WorkOut</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+{% block content %}
+    {% for training in trainings %}
+        <div class="post">
+            <div class="date">
+                {{ training.published_date }}
+            </div>
+            <h1><a href="">{{ training.exercise_name }}</a></h1>
+            <p>{{ training.weight|linebreaksbr }}</p>
         </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My second WorkOut</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-        </div>
-    </body>
-</html>
+    {% endfor %}
+{% endblock %}
