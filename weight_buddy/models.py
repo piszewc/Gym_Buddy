@@ -1,6 +1,13 @@
 from django.db import models
 from django.utils import timezone
 
+class Exercise(models.Model):
+
+	excercise_name = models.CharField(max_length=100)
+	excercise_description = models.CharField(max_length=1000)
+
+	def __str__(self):
+		return self.excercise_name
 
 class Training(models.Model):
 
@@ -23,9 +30,14 @@ class Training(models.Model):
 	published_date = models.DateTimeField(
             blank=True, null=True)
 
+	Test = models.ManyToManyField(Exercise)
+
 	def publish(self):
 		self.published_date = timezone.now()
 		self.save()
 
 	def __str__(self):
 		return self.exercise_name
+
+
+		
