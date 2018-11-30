@@ -1,13 +1,15 @@
 from django.db import models
 from django.utils import timezone
 
-class Exercise(models.Model):
+class Exercises(models.Model):
 
 	excercise_name = models.CharField(max_length=100)
-	excercise_description = models.CharField(max_length=1000)
+	excercise_description = models.CharField(max_length=1000,blank=True, null=True)
 
 	def __str__(self):
-		return self.excercise_name
+		return "%s %s" % (self.excercise_name, self.excercise_description)	
+
+DEFAULT_EXERCISE_ID = 1
 
 class Training(models.Model):
 
@@ -29,8 +31,8 @@ class Training(models.Model):
             default=timezone.now)
 	published_date = models.DateTimeField(
             blank=True, null=True)
+	exercise = models.ForeignKey(Exercises, on_delete=models.CASCADE, default=DEFAULT_EXERCISE_ID,blank=True, null=True)
 
-	Test = models.ManyToManyField(Exercise)
 
 	def publish(self):
 		self.published_date = timezone.now()
@@ -38,6 +40,3 @@ class Training(models.Model):
 
 	def __str__(self):
 		return self.exercise_name
-
-
-		
