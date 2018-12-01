@@ -25,13 +25,13 @@ class Training(models.Model):
         default=PUSH,
     )
 
-	exercise_name = models.CharField(max_length=200)
+	exercise = models.ForeignKey(Exercises, on_delete=models.CASCADE, default=DEFAULT_EXERCISE_ID)
+
 	weight = models.SmallIntegerField()
 	created_date = models.DateTimeField(
             default=timezone.now)
 	published_date = models.DateTimeField(
             blank=True, null=True)
-	exercise = models.ForeignKey(Exercises, on_delete=models.CASCADE, default=DEFAULT_EXERCISE_ID,blank=True, null=True)
 
 
 	def publish(self):
@@ -39,4 +39,4 @@ class Training(models.Model):
 		self.save()
 
 	def __str__(self):
-		return self.exercise_name
+		return self.exercise

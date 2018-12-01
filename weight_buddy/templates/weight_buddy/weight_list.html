@@ -6,8 +6,9 @@
             <div class="date">
                 {{ training.published_date }}
             </div>
+            <h1><a href="{% url 'weight_detail' pk=training.pk %}">{{ training.exercise }}</a></h1>
+
             <h1><a href="">{{ training.exercise_name }}</a></h1>
-            <h1><a href="">{{ training.exercise }}</a></h1>
             <p>{{ training.weight|linebreaksbr }}</p>
         </div>
     {% endfor %}

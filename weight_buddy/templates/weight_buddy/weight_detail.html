@@ -1,0 +1,13 @@
+{% extends 'weight_buddy/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if training.published_date %}
+            <div class="date">
+                {{ training.published_date }}
+            </div>
+        {% endif %}
+        <h1>{{ training.exercise }}</h1>
+        <p>{{ training.weight|linebreaksbr }}</p>
+    </div>
+{% endblock %}
