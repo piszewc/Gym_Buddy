@@ -43,6 +43,7 @@ class Training(models.Model):
         choices=workout_type_choices,
         default=PUSH,
     )
+	
 	DEFAULT_EXERCISE_ID_ONE = 1
 	DEFAULT_EXERCISE_ID_TWO = 2
 	DEFAULT_EXERCISE_ID_TREE = 3

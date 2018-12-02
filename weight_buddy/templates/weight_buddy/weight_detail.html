@@ -10,7 +10,19 @@
         {% if user.is_authenticated %}
             <a class="btn btn-default" href="{% url 'training_edit' pk=training.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         {% endif %}
-        <h1>{{ training.exercise }}</h1>
-        <p>{{ training.weight|linebreaksbr }}</p>
+        
+        <h1>{{ training.workout_name }}</h1>
+
+        <h2>{{ training.exercise }} |   Weight: {{ training.weight|linebreaksbr }}</h2>
+    
+        <h2>{{ training.exercise_one }} |   Weight: {{ training.weight_one|linebreaksbr }}</h2>
+
+        <h2>{{ training.exercise_two }} |   Weight: {{ training.weight_two|linebreaksbr }}</h2>
+
+        <h2>{{ training.exercise_tree }} |  Weight: {{ training.weight_tree|linebreaksbr }}</h2>
+
+        <h2>{{ training.exercise_four }} |   Weight: {{ training.weight_four|linebreaksbr }}</h2>
+
+        <h2>{{ training.exercise_five }} |  Weight:{{ training.weight_five|linebreaksbr }}</h2>
     </div>
 {% endblock %}
