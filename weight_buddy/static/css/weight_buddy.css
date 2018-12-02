@@ -17,12 +17,7 @@
 h1, h2, h3, h4 {
     font-family: 'Lobster', cursive;
 }
-.post p {
-    font-size: 30px;
-}
-p {
-    font-size: 30px;
-}
+
 .date {
     color: #828282;
 }
