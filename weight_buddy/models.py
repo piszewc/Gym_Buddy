@@ -30,7 +30,8 @@ class Exercises(models.Model):
 		return "%s %s" % (self.excercise_name, self.set_repetitions_number )	
 
 class ExercisesSet(models.Model):
-	
+	print("Hello")
+
 
 class Training(models.Model):
 
