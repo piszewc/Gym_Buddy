@@ -25,7 +25,7 @@ class Exercises(models.Model):
 	excercise_name = models.CharField(max_length=100)
 	set_repetitions_number = models.CharField(max_length=1000,blank=True, null=True)
 	excercise_description = models.CharField(max_length=1000,blank=True, null=True)
-
+	
 	def __str__(self):
 		return "%s %s" % (self.excercise_name, self.set_repetitions_number )	
 
