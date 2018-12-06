@@ -1,5 +1,5 @@
 .page-header {
-    background-color: #ff9400;
+    background-color: #174F7F;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
 }
@@ -58,20 +58,22 @@ h1, h2, h3, h4 {
     background-color: #2d303c; /* Black */
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 20px;
+    padding-left: 5px;
 }
 
 /* The navigation menu links */
 .sidenav a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 18px;
     color:rgb(255, 255, 255);
     display: block;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-    color: rgb(240, 117, 79);
+    color:#2E9EFF;
+
 }
 
 /* Style page content */
@@ -84,4 +86,9 @@ h1, h2, h3, h4 {
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
+}
+
+.gym_buddy_logo {
+    width: 200px;
+    height: 200px;
 }
