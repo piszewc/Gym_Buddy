@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
 	path('', include('weight_buddy.urls')),
+    path('', include('exercises.urls')),
 ]
