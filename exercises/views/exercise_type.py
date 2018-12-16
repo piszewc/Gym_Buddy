@@ -15,6 +15,8 @@ class ExerciseTypeListView(models.Model):
         choices=excercise_type_choices,
         default=CARDIO,
     )
+    
+    excercise_type_description = models.CharField(max_length=1000)
 
     def __str__(self):
-        return "%s" % (self.excercise_type)	
+        return "%s" % (self.excercise_type)
