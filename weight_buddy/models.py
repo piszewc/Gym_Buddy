@@ -29,9 +29,32 @@ class Exercises(models.Model):
 	def __str__(self):
 		return "%s %s" % (self.excercise_name, self.set_repetitions_number )	
 
-class ExercisesSet(models.Model):
-	print("Hello")
+class ExercisesDetails(models.Model):
 
+	CHEST = 'CHEST'
+	DELTS = 'DELTS'
+	TRICEPS = 'TRICEPS'
+	LEGS = 'LEGS'
+	ABS = 'ABS'
+	BACK = 'BACK'
+	BICEPS = 'BICEPS'
+	FOREARMS = 'FOREARMS'
+
+	excercise_type_choices = ((CHEST, 'CHEST'),(DELTS, 'DELTS'),(TRICEPS, 'TRICEPS')
+	,(BACK, 'BACK'),(BICEPS, 'BICEPS'),(FOREARMS, 'FOREARMS')
+	,(LEGS, 'LEGS'),(ABS, 'ABS'),)
+	
+	workout_type = models.CharField(
+        max_length=10,
+        choices=excercise_type_choices,
+        default=CHEST,
+    )
+
+	excercise_name = models.CharField(max_length=100)
+	excercise_description = models.CharField(max_length=1000,blank=True, null=True)
+	
+	def __str__(self):
+		return "%s %s" % (self.excercise_name )	
 
 class Training(models.Model):
 

@@ -1,4 +1,4 @@
-{% extends 'weight_buddy/base.html' %}
+{% extends 'workout_buddy/base.html' %}
 
 {% block content %}
     {% for training in trainings %}
@@ -6,7 +6,7 @@
             <div class="date">
                 {{ training.published_date }}
             </div>
-            <h1><a href="{% url 'weight_detail' pk=training.pk %}">{{ training.workout_name }}</a></h1>
+            <h1><a href="{% url 'workout_detail' pk=training.pk %}">{{ training.workout_name }}</a></h1>
                      
             <h2>{{ training.exercise }} | Weight: {{ training.weight|linebreaksbr }}</h2>
     
