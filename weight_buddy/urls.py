@@ -7,4 +7,7 @@ urlpatterns = [
     path('training/new', views.training_new, name='training_new'),
     path('training/<int:pk>/edit/', views.training_edit, name='training_edit'),
 
+    path('', views.exercises , name='exercises'),
+
+
 ]

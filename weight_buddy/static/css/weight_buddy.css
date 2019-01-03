@@ -15,7 +15,7 @@
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 500;}
     
 
@@ -49,6 +49,7 @@ h1, h2, h3, h4 {
 
 /* The sidebar menu */
 .sidenav {
+    font-family: 'Montserrat', sans-serif;
     height: 100%; /* Full-height: remove this if you want "auto" height */
     width: 220px; /* Set the width of the sidebar */
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
