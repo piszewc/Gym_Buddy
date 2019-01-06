@@ -7,18 +7,6 @@
                 {{ training.published_date }}
             </div>
             <h1><a href="{% url 'workout_detail' pk=training.pk %}">{{ training.workout_name }}</a></h1>
-                     
-            <p>{{ training.exercise }} | Weight: {{ training.weight|linebreaksbr }}</p>
-    
-            <p>{{ training.exercise_one }} | Weight: {{ training.weight_one|linebreaksbr }}</p>
-    
-            <p>{{ training.exercise_two }} | Weight: {{ training.weight_two|linebreaksbr }}</p>
-    
-            <p>{{ training.exercise_tree }} | Weight: {{ training.weight_tree|linebreaksbr }}</p>
-    
-            <p>{{ training.exercise_four }} | Weight: {{ training.weight_four|linebreaksbr }}</p>
-    
-            <p>{{ training.exercise_five }} | Weight:{{ training.weight_five|linebreaksbr }}</p>
 
         </div>
     {% endfor %}

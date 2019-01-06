@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Training
-from .models import ExercisesDetails
+from .models import ExercisesDetail
 from .forms import TrainingForm
 
 # Create your views here.
@@ -11,8 +11,8 @@ def workout_list(request):
 
 def exercises_list(request):
     #exercises_list = get_object_or_404(ExercisesDetails)
-    exercises_list = ExercisesDetails.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'exercises/exercises_list.html', {'exercises_list': exercises_list})
+    exercises = ExercisesDetail.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'exercises/exercises_list.html', {'exercises': exercises})
 
 #def training_new(request):
 #    form = TrainingForm()

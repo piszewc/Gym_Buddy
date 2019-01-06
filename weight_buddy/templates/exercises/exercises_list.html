@@ -1,9 +1,11 @@
 {% extends 'workout_buddy/base.html' %}
 
 {% block content %}
+    {% for exercises in exercises %}
+            
+            <p>{{ exercises.excercise_type }}</p>
+            <p>{{ exercises.excercise_name }}</p>
+            <p>{{ exercises.excercise_description }}</p>
 
-    <p>
-        This is a partial list of weight training exercises organized by muscle group.
-    </p>
-    
+    {% endfor %}
 {% endblock %}
