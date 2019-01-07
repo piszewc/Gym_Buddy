@@ -16,6 +16,44 @@ class ExercisesDetail(models.Model):
         default="WEIGHT",
     )
 
+
+	FULL_BODY = 'FULL_BODY'
+	BACK = 'BACK'
+	CORE = 'CORE'
+	ARMS = 'ARMS'
+	LEGS = 'LEGS'
+
+	excercise_major_muscule_choices = ((FULL_BODY,"FULL BODY"), (BACK, "BACK"), (CORE, "CORE"), (ARMS,"ARMS"), (LEGS,'LEGS'))
+
+	excercise_major_muscule = models.CharField(
+        max_length=10,
+        choices=excercise_major_muscule_choices,
+        default="FULL BODY",
+    )
+
+	BICEP = 'BICEP'
+	CALVES = 'CALVES'
+	CHEST = 'CHEST'
+	GLUTES = 'GLUTES'
+	HAMSTRINGS = 'HAMSTRINGS'
+	INNER_THIGH = 'INNER_THIGH'
+	LATS = 'LATS'
+	OBLIQUE = 'OBLIQUE'
+	OUTER_THIGH = 'OUTER_THIGH'
+	QUADS = 'QUADS'
+	SHOULDERS = 'SHOULDERS'
+	TRICEP = 'TRICEP'
+
+	excercise_minior_muscule_choices = ((BICEP,"BICEP"), (CALVES, "CALVES"), (CHEST, "CHEST"), (GLUTES,"GLUTES"), (HAMSTRINGS,'HAMSTRINGS'), (INNER_THIGH,'INNER THIGH'), 
+	(LATS,'LATS'), (OBLIQUE,'OBLIQUE'), (OUTER_THIGH,'OUTER THIGH'), (QUADS,'QUADS'), (SHOULDERS,'SHOULDERS'), (TRICEP,'TRICEP'))
+
+	excercise_minior_muscule = models.CharField(
+        max_length=10,
+        choices=excercise_minior_muscule_choices,
+        default="FULL_BODY",
+    )
+
+
 	excercise_name = models.CharField(max_length=100)
 	excercise_description = models.CharField(max_length=1000,blank=True, null=True)
 	

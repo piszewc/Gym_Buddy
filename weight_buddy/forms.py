@@ -14,4 +14,4 @@ class ExercisesForm(forms.ModelForm):
 
     class Meta:
         model = ExercisesDetail
-        fields = ('excercise_name',)
+        fields = ('excercise_name','excercise_type','excercise_description','excercise_major_muscule','excercise_major_muscule')
