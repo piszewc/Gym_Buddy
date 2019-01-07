@@ -3,6 +3,7 @@ from django.utils import timezone
 from .models import Training
 from .models import ExercisesDetail
 from .forms import TrainingForm
+from .forms import ExercisesForm
 
 # Create your views here.
 def workout_list(request):
@@ -34,6 +35,19 @@ def training_new(request):
     else:
         form = TrainingForm()
     return render(request, 'workout_buddy/training_edit.html', {'form': form})
+
+def exercises_new(request):
+    if request.method == "POST":
+        form = ExercisesForm(request.POST)
+        if form.is_valid():
+            exercises = form.save(commit=False)
+            exercises.author = request.user
+            exercises.published_date = timezone.now()
+            exercises.save()
+            return redirect('exercises_detail', pk=exercises.pk)
+    else:
+        form = ExercisesForm()
+    return render(request, 'exercises/exercises_edit.html', {'form': form})
 
 def training_edit(request, pk):
     training = get_object_or_404(Training, pk=pk)
