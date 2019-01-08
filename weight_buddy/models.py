@@ -8,11 +8,11 @@ class ExercisesDetail(models.Model):
 	WEIGHT = "WEIGHT"
 	LAPS = "LAPS"
 
-	excercise_type_choices = ((CARDIO,"CARDIO"), (PLYO, "PLYO"), (WEIGHT, "WEIGHT"), (LAPS,"LAPS"))
+	type_choices = ((CARDIO,"CARDIO"), (PLYO, "PLYO"), (WEIGHT, "WEIGHT"), (LAPS,"LAPS"))
 	
-	excercise_type = models.CharField(
+	type = models.CharField(
         max_length=10,
-        choices=excercise_type_choices,
+        choices=type_choices,
         default="WEIGHT",
     )
 
@@ -23,11 +23,11 @@ class ExercisesDetail(models.Model):
 	ARMS = 'ARMS'
 	LEGS = 'LEGS'
 
-	excercise_major_muscule_choices = ((FULL_BODY,"FULL BODY"), (BACK, "BACK"), (CORE, "CORE"), (ARMS,"ARMS"), (LEGS,'LEGS'))
+	major_muscule_choices = ((FULL_BODY,"FULL BODY"), (BACK, "BACK"), (CORE, "CORE"), (ARMS,"ARMS"), (LEGS,'LEGS'))
 
-	excercise_major_muscule = models.CharField(
+	major_muscule = models.CharField(
         max_length=10,
-        choices=excercise_major_muscule_choices,
+        choices=major_muscule_choices,
         default="FULL BODY",
     )
 
@@ -44,19 +44,22 @@ class ExercisesDetail(models.Model):
 	SHOULDERS = 'SHOULDERS'
 	TRICEP = 'TRICEP'
 
-	excercise_minior_muscule_choices = ((BICEP,"BICEP"), (CALVES, "CALVES"), (CHEST, "CHEST"), (GLUTES,"GLUTES"), (HAMSTRINGS,'HAMSTRINGS'), (INNER_THIGH,'INNER THIGH'), 
+	minior_muscule_choices = ((BICEP,"BICEP"), (CALVES, "CALVES"), (CHEST, "CHEST"), (GLUTES,"GLUTES"), (HAMSTRINGS,'HAMSTRINGS'), (INNER_THIGH,'INNER THIGH'), 
 	(LATS,'LATS'), (OBLIQUE,'OBLIQUE'), (OUTER_THIGH,'OUTER THIGH'), (QUADS,'QUADS'), (SHOULDERS,'SHOULDERS'), (TRICEP,'TRICEP'))
 
-	excercise_minior_muscule = models.CharField(
+	minior_muscule = models.CharField(
         max_length=10,
-        choices=excercise_minior_muscule_choices,
+        choices=minior_muscule_choices,
         default="FULL_BODY",
     )
 
 
-	excercise_name = models.CharField(max_length=100)
-	excercise_description = models.CharField(max_length=1000,blank=True, null=True)
-	
+	name = models.CharField(max_length=100)
+	description = models.CharField(max_length=1000,blank=True, null=True)
+	modification = models.CharField(max_length=1000,blank=True, null=True)
+
+	example = models.ImageField(upload_to='exercise_video', blank=True)
+
 	created_date = models.DateTimeField(
             default=timezone.now)
 	published_date = models.DateTimeField(
@@ -69,7 +72,7 @@ class ExercisesDetail(models.Model):
 
 
 	def __str__(self):
-		return self.excercise_name	
+		return self.name	
 
 class Training(models.Model):
 
