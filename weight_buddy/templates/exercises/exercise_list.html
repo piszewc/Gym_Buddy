@@ -1,0 +1,12 @@
+{% extends 'workout_buddy/base.html' %}
+{% block content %}
+    {% for exercise in exercises %}
+    <div>
+        <p>published: {{ exercise.published_date }}</p>
+        <h2><a href="">{{ exercise.name }}</a></h2>
+        <p>{{ exercise.description|linebreaksbr }}</p>
+    </div>
+    {% endfor %}
+    
+
+{% endblock %}

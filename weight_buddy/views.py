@@ -7,13 +7,12 @@ from .forms import ExercisesForm
 
 # Create your views here.
 def workout_list(request):
-    trainings = Training.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'workout_buddy/workout_list.html', {'trainings': trainings})
+    training = Training.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'workout_buddy/workout_list.html', {'training': training})
 
-def exercises_list(request):
-    #exercises_list = get_object_or_404(ExercisesDetails)
+def exercise_list(request):
     exercises = ExercisesDetail.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'exercises/exercises_list.html', {'exercises': exercises})
+    return render(request, 'exercises/exercise_list.html', {'exercises': exercises})
 
 #def training_new(request):
 #    form = TrainingForm()
@@ -22,6 +21,11 @@ def exercises_list(request):
 def workout_detail(request, pk):
     training = get_object_or_404(Training, pk=pk)
     return render(request, 'workout_buddy/workout_detail.html', {'training': training})    
+
+def exercise_detail(request, pk):
+    exercise = get_object_or_404(ExercisesDetail, pk=pk)
+    return render(request, 'exercises/exercise_detail.html', {'exercise': exercise})    
+
 
 def training_new(request):
     if request.method == "POST":
@@ -36,18 +40,18 @@ def training_new(request):
         form = TrainingForm()
     return render(request, 'workout_buddy/training_edit.html', {'form': form})
 
-def exercises_new(request):
+def exercise_new(request):
     if request.method == "POST":
         form = ExercisesForm(request.POST)
         if form.is_valid():
-            exercises = form.save(commit=False)
-            exercises.author = request.user
-            exercises.published_date = timezone.now()
-            exercises.save()
-            return redirect('exercises_detail', pk=exercises.pk)
+            exercise = form.save(commit=False)
+            exercise.author = request.user
+            exercise.published_date = timezone.now()
+            exercise.save()
+            return redirect('exercise_detail', pk=exercise.pk)
     else:
         form = ExercisesForm()
-    return render(request, 'exercises/exercises_edit.html', {'form': form})
+    return render(request, 'exercises/exercise_edit.html', {'form': form})
 
 def training_edit(request, pk):
     training = get_object_or_404(Training, pk=pk)
@@ -62,3 +66,18 @@ def training_edit(request, pk):
     else:
         form = TrainingForm(instance=training)
     return render(request, 'workout_buddy/training_edit.html', {'form': form})
+
+    
+def exercise_edit(request, pk):
+    exercise = get_object_or_404(ExercisesDetail, pk=pk)
+    if request.method == "POST":
+        form = ExercisesForm(request.POST, instance=exercise)
+        if form.is_valid():
+            exercise = form.save(commit=False)
+            exercise.author = request.user
+            exercise.published_date = timezone.now()
+            exercise.save()
+            return redirect('exercise_detail', pk=exercise.pk)
+    else:
+        form = ExercisesForm(instance=exercise)
+    return render(request, 'exercises/exercise_edit.html', {'form': form})

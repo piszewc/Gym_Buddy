@@ -3,6 +3,8 @@ from django.utils import timezone
 
 class ExercisesDetail(models.Model):
 
+	author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+
 	CARDIO = 'CARDIO'
 	PLYO = "PLYO"
 	WEIGHT = "WEIGHT"
@@ -15,8 +17,7 @@ class ExercisesDetail(models.Model):
         choices=type_choices,
         default="WEIGHT",
     )
-
-
+    
 	FULL_BODY = 'FULL_BODY'
 	BACK = 'BACK'
 	CORE = 'CORE'
