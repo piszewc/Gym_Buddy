@@ -5,6 +5,8 @@
         <p>published: {{ exercise.published_date }}</p>
         <h2><a href="">{{ exercise.name }}</a></h2>
         <p>{{ exercise.description|linebreaksbr }}</p>
+        <p>{{ exercise.modification|linebreaksbr }}</p>
+
     </div>
     {% endfor %}
     
