@@ -1,34 +1,36 @@
 {% extends 'workout_buddy/base.html' %}
 {% block content %}
 
-<div class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
+
+<div class="container-fluid">
 
     <table class="table ">
         <thead class="table-dark ">
             <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Type</th>
-            <th scope="col">Major Muscule</th>
-            <th scope="col">Minior Muscule</th>
-            <th scope="col">Example</th>
-            <th scope="col">Description</th>
-            <th scope="col">Modifications</th>
+            <th >Name</th>
+            <th >Type</th>
+            <th >Major Muscule</th>
+            <th >Minior Muscule</th>
+            <th >Example</th>
+            <th >Description</th>
+            <th >Modifications</th>
             </tr>
         </thead>
         <tbody>
             {% for exercise in exercises %}
                 <tr>
-                <th scope="row">{{ exercise.name }}</th>
-                <td>{{ exercise.type }}</td>
-                <td>{{ exercise.major_muscule }}</td>
-                <td>{{ exercise.minior_muscule }}</td>
-                <td>{{ exercise.example }}</td>
-                <td>{{ exercise.description }}</td>
-                <td>{{ exercise.modification }}</td>
+                <th >{{ exercise.name }}</th>
+                <td >{{ exercise.type }}</td>
+                <td >{{ exercise.major_muscule }}</td>
+                <td >{{ exercise.minior_muscule }}</td>
+                <td >{{ exercise.example }}</td>
+                <td >{{ exercise.description }}</td>
+                <td >{{ exercise.modification }}</td>
 
                 </tr>
             {% endfor %}
         </tbody>
         </table>  
+
 </div>
 {% endblock %}

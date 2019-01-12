@@ -14,8 +14,11 @@
         <link rel="stylesheet" href="{% static 'css/weight_buddy.css' %}">
     </head>
     <body>
+
+        
             {% block sidebar %}
             <!-- Side navigation -->
+            
                 <div class="sidenav">
                     <img class="gym_buddy_logo" src="\static\images\logo.png" alt="logo">
 
@@ -26,6 +29,7 @@
                     <a href="#">Need help?</a>
                     <a href="#">Share With Friends</a>
                 </div>
+
             {% endblock %}
 
             <!-- Page content -->
@@ -38,15 +42,14 @@
                     {% endif %}
                     <h1><a href="/">Workout Weight</a></h1>
                 </div>
-                <div class="content container">
-                    <div class="row">
-                        <div class="col-md-8">
+                <div class="container">
+                        <div class="row">
+
                         {% block content %}
                         {% endblock %}
                         </div>
                     </div>
                 </div>
-             </div>
 
         </body>
 </html>
