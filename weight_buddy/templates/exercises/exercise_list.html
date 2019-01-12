@@ -1,14 +1,34 @@
 {% extends 'workout_buddy/base.html' %}
 {% block content %}
-    {% for exercise in exercises %}
-    <div>
-        <p>published: {{ exercise.published_date }}</p>
-        <h2><a href="">{{ exercise.name }}</a></h2>
-        <p>{{ exercise.description|linebreaksbr }}</p>
-        <p>{{ exercise.modification|linebreaksbr }}</p>
 
-    </div>
-    {% endfor %}
-    
+<div class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
 
+    <table class="table ">
+        <thead class="table-dark ">
+            <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Major Muscule</th>
+            <th scope="col">Minior Muscule</th>
+            <th scope="col">Example</th>
+            <th scope="col">Description</th>
+            <th scope="col">Modifications</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for exercise in exercises %}
+                <tr>
+                <th scope="row">{{ exercise.name }}</th>
+                <td>{{ exercise.type }}</td>
+                <td>{{ exercise.major_muscule }}</td>
+                <td>{{ exercise.minior_muscule }}</td>
+                <td>{{ exercise.example }}</td>
+                <td>{{ exercise.description }}</td>
+                <td>{{ exercise.modification }}</td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>  
+</div>
 {% endblock %}
