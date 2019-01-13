@@ -4,9 +4,12 @@
 {# Display a form #}
 {% block content %}
 
+<div class="container marketing">
+
 <h1>Add New Exercise</h1>
 
   <form method="post" class="post-form">
+  <div class="col-md-7">
 
     {% csrf_token %}
     {% bootstrap_form form %}
@@ -14,6 +17,7 @@
     {% buttons %}
         <button type="submit" class="btn btn-primary">Submit</button>
     {% endbuttons %}
-
+</div>
   </form>
+  </div>
 {% endblock %}

@@ -10,6 +10,10 @@ def workout_list(request):
     training = Training.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'workout_buddy/workout_list.html', {'training': training})
 
+def home_page(request):
+    return render(request, 'workout_buddy/home_page.html',)
+
+
 def exercise_list(request):
     exercises = ExercisesDetail.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'exercises/exercise_list.html', {'exercises': exercises})

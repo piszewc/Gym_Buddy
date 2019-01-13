@@ -3,34 +3,35 @@
 
 
 <div class="container-fluid">
+    <div class="container marketing">
 
-    <table class="table ">
-        <thead class="table-dark ">
-            <tr>
-            <th >Name</th>
-            <th >Type</th>
-            <th >Major Muscule</th>
-            <th >Minior Muscule</th>
-            <th >Example</th>
-            <th >Description</th>
-            <th >Modifications</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for exercise in exercises %}
+        <table class="table ">
+            <thead class="table-dark ">
                 <tr>
-                <th >{{ exercise.name }}</th>
-                <td >{{ exercise.type }}</td>
-                <td >{{ exercise.major_muscule }}</td>
-                <td >{{ exercise.minior_muscule }}</td>
-                <td >{{ exercise.example }}</td>
-                <td >{{ exercise.description }}</td>
-                <td >{{ exercise.modification }}</td>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Major Muscule</th>
+                    <th>Minior Muscule</th>
+                    <th>Example</th>
+                    <th>Description</th>
+                    <th>Modifications</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for exercise in exercises %}
+                <tr>
+                    <th>{{ exercise.name }}</th>
+                    <td>{{ exercise.type }}</td>
+                    <td>{{ exercise.major_muscule }}</td>
+                    <td>{{ exercise.minior_muscule }}</td>
+                    <td><img src="{{ exercise.example.url }}" width="300" height="125"></td>
+                    <td>{{ exercise.description }}</td>
+                    <td>{{ exercise.modification }}</td>
 
                 </tr>
-            {% endfor %}
-        </tbody>
-        </table>  
-
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}

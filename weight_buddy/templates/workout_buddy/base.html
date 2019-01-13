@@ -1,17 +1,22 @@
 {% load static %}
 <html>
-    <head>
-        <title>Workout Planer</title>
-        
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Montserrat" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-        <style>
-                .bd-placeholder-img {
+
+<head>
+  <title>GYM BUDDY</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+  <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <style>
+    .bd-placeholder-img {
                   font-size: 1.125rem;
                   text-anchor: middle;
                 }
@@ -22,137 +27,45 @@
                   }
                 }
               </style>
-    </head>
-    <body>
+</head>
 
-        {% block sidebar %}
-        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary border-bottom border-white">
-            <a class="navbar-brand" href="#">
-                <img src="/static/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                Workout Buddy
-              </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Exercises</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Contact</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
+<body>
 
+  {% block sidebar %}
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary border-bottom border-white">
+    <a class="navbar-brand" href="{% url 'home_page' %}">
+      <img src="/static/images/logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
+      GYM BUDDY
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'home_page' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'exercise_list' %}">Exercises</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  {% endblock %}
+  <div class="main">
+
+
+          {% block content %}
+          
           {% endblock %}
-            <!-- Side navigation 
-            
-                <div class="sidenav">
-                    <img class="gym_buddy_logo" src="\static\images\logo.png" alt="logo">
+          
+  </div>
 
-                    <a href="{% url 'exercise_list' %}">Exercises</a>
-                    <a href="{% url 'workout_list' %}">Workout</a>
-                    <a href="#">Training</a>
-                    <a href="#">Settings</a>
-                    <a href="#">Need help?</a>
-                    <a href="#">Share With Friends</a>
-                </div>
-                -->
-            
+</body>
 
-
-            <!-- Page content -->
-            <div class="main">
-
-                    <div id="myCarousel" class="carousel slide" data-ride="workout_buddy">
-                            <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                <img class="bd-placeholder-img" width="100%"  height="100%" src="/static/images/slider_lady.jpg" preserveAspectRatio="xMidYMid meet" focusable="false" role="img"><rect fill="#777" width="100%"  height="100%"></rect></img>
-                                <div class="container">
-                                  <div class="carousel-caption text-left" style="text-shadow: black 0px 0px 5px;">
-                                    <h1>TODAY IS YOUR DAY.</h1>
-                                    <p>Everybody wanna be a bodybuilder, but nobody wanna lift this heavy-ass weight.</p>
-                                  </div>
-                                </div>
-                              </div>
-                             </div>
-                    </div>
-
-      <div class="starter-template">
-        <h1>Creating workout plan has never been easier</h1>
-        <p class="lead">Workout Buddy creates personalized exercises list based on your preferences, budget, and schedule. Reach your workout goals with our assistant.</p><p class="lead"> Create your workout plan right here in seconds.</p>
-      </div>
-
-
-                              <div class="container marketing">
-                                
-                                
-                                    <!-- START THE FEATURETTES -->
-                                
-                                    <hr class="featurette-divider">
-                                
-                                    <div class="row featurette">
-                                      <div class="col-md-7">
-                                        <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-                                        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-                                      </div>
-                                      <div class="col-md-5">
-                                        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect fill="#eee" width="100%" height="100%"></rect><text fill="#aaa" dy=".3em" x="50%" y="50%">500x500</text></svg>
-                                      </div>
-                                    </div>
-                                
-                                    <hr class="featurette-divider">
-                                
-                                    <div class="row featurette">
-                                      <div class="col-md-7 order-md-2">
-                                        <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-                                        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-                                      </div>
-                                      <div class="col-md-5 order-md-1">
-                                        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect fill="#eee" width="100%" height="100%"></rect><text fill="#aaa" dy=".3em" x="50%" y="50%">500x500</text></svg>
-                                      </div>
-                                    </div>
-                                
-                                    <hr class="featurette-divider">
-                                
-                                    <div class="row featurette">
-                                      <div class="col-md-7">
-                                        <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-                                        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-                                      </div>
-                                      <div class="col-md-5">
-                                        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect fill="#eee" width="100%" height="100%"></rect><text fill="#aaa" dy=".3em" x="50%" y="50%">500x500</text></svg>
-                                      </div>
-                                    </div>
-                                
-                                    <hr class="featurette-divider">
-                                
-                                    <!-- /END THE FEATURETTES -->
-                                
-                                  </div>
-<!--
-                <div class="page-header">
-                    {% if user.is_authenticated %}
-                    <a href="{% url 'training_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-                    <a href="{% url 'exercise_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-                    {% endif %}
-                    <h1><a href="/">Workout Weight</a></h1>
-                </div>
-                <div class="container">
-                        <div class="row">
-
-                        {% block content %}
-                        {% endblock %}
-                        </div>
-                    </div>
--->
-
-                </div>
-
-        </body>
 </html>
