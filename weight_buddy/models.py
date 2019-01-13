@@ -59,7 +59,7 @@ class ExercisesDetail(models.Model):
 	description = models.CharField(max_length=1000,blank=True, null=True)
 	modification = models.CharField(max_length=1000,blank=True, null=True)
 
-	example = models.ImageField(upload_to='weight_buddy/user_upload/exercise_video', blank=True)
+	example = models.ImageField(upload_to='', blank=True)
 
 	created_date = models.DateTimeField(
             default=timezone.now)

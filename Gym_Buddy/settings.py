@@ -121,5 +121,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-MEDIA_URL = '/user_upload/'
-MEDIA_ROOT = os.path.join('exercise_video/')
+MEDIA_URL = '/exercise_video/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'/exercise_video/')
