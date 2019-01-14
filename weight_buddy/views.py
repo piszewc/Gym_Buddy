@@ -1,3 +1,7 @@
+import csv,io
+from django.contrib import messages
+from django.contrib.auth.decorators import permission_required
+
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Training
@@ -85,3 +89,37 @@ def exercise_edit(request, pk):
     else:
         form = ExercisesForm(instance=exercise)
     return render(request, 'exercises/exercise_edit.html', {'form': form})
+
+
+@permission_required('admin.can_add_log_entry')
+def exercises_upload(request):
+    template = "workout_buddy/exercises_upload.html"
+
+    prompt = {
+        'order': 'Order of CSV should be name, type, major_muscule, minior_muscule, description, modification'
+    }
+
+    if request.method == 'GET':
+        return render(request, template, prompt)
+
+    csv_file = request.FILES['file']
+
+    if not csv_file.name.endswith('.csv'):
+        messages.error(request, 'This is not CSV file')
+
+    data_set = csv_file.read().decode('utf-8')
+    io_string = io.StringIO(data_set)
+    next(io_string)
+    for column in csv.reader(io_string, delimiter=',', quotechar='"'):
+        _, created = ExercisesDetail.objects.update_or_create(
+        author = request.user,
+        name = column[1],
+        type = column[2],
+        major_muscule = column[3],
+        minior_muscule = column[4],
+        description = column[5],
+        modification = column[6],
+        example = column[7]
+        )
+    context = {}
+    return render(request, template, context)

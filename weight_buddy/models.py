@@ -51,7 +51,7 @@ class ExercisesDetail(models.Model):
 	minior_muscule = models.CharField(
         max_length=10,
         choices=minior_muscule_choices,
-        default="FULL_BODY",
+        default="BICEP",
     )
 
 
@@ -59,12 +59,12 @@ class ExercisesDetail(models.Model):
 	description = models.CharField(max_length=1000,blank=True, null=True)
 	modification = models.CharField(max_length=1000,blank=True, null=True)
 
-	example = models.ImageField(upload_to='', blank=True)
+	example = models.ImageField(upload_to='exercise_video/', blank=True, null=True)
 
 	created_date = models.DateTimeField(
             default=timezone.now)
 	published_date = models.DateTimeField(
-            blank=True, null=True)
+            default=timezone.now)
 
 
 	def publish(self):

@@ -4,9 +4,12 @@
 
 <div class="container-fluid">
     <div class="container marketing">
+        <h1> Exercise Guide</h2>
+        <p class="lead">Browse our illustrated library of at-home and gym exercises.</p>
+        <div class="card rounded-5 ">
 
-        <table class="table ">
-            <thead class="table-dark ">
+        <table class="table table-striped">
+            <thead class="thead-dark">
                 <tr>
                     <th>Name</th>
                     <th>Type</th>
@@ -24,7 +27,7 @@
                     <td>{{ exercise.type }}</td>
                     <td>{{ exercise.major_muscule }}</td>
                     <td>{{ exercise.minior_muscule }}</td>
-                    <td><img src="{{ exercise.example.url }}" width="auto" height="125"></td>
+                    <td><img src="{{ exercise.example.url }}" width="auto" height="125" style="border-radius: 5px;  border: 1px solid rgb(209, 209, 209);"></td>
                     <td>{{ exercise.description }}</td>
                     <td>{{ exercise.modification }}</td>
 
@@ -32,6 +35,7 @@
                 {% endfor %}
             </tbody>
         </table>
+    </div>
     </div>
 </div>
 {% endblock %}
