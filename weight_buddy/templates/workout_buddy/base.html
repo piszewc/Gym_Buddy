@@ -26,6 +26,9 @@
                     font-size: 3.5rem;
                   }
                 }
+                body {
+      font-family: 'Montserrat', sans-serif;
+    }
               </style>
 </head>
 
@@ -50,7 +53,7 @@
           <a class="nav-link" href="{% url 'exercise_list' %}">Exercises</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" href="{% url 'contact_page' %}">Contact</a>
         </li>
       </ul>
     </div>
@@ -60,10 +63,10 @@
   <div class="main">
 
 
-          {% block content %}
-          
-          {% endblock %}
-          
+    {% block content %}
+
+    {% endblock %}
+
   </div>
 
 </body>
