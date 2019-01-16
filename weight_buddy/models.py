@@ -1,6 +1,15 @@
 from django.db import models
 from django.utils import timezone
 
+class Equipment(models.Model):
+	name = models.CharField(max_length=100)
+	description = models.CharField(max_length=1000,blank=True, null=True)
+	image = models.ImageField(upload_to='equipment_images/', blank=True, null=True)
+
+	def __str__(self):
+		return self.name
+
+
 class ExercisesDetail(models.Model):
 
 	author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
@@ -66,6 +75,8 @@ class ExercisesDetail(models.Model):
 	published_date = models.DateTimeField(
             default=timezone.now)
 
+	equipment = models.ManyToManyField(Equipment,blank=True, null=True)
+
 
 	def publish(self):
 		self.published_date = timezone.now()
@@ -75,13 +86,6 @@ class ExercisesDetail(models.Model):
 	def __str__(self):
 		return self.name	
 
-class Equipment(models.Model):
-	name = models.CharField(max_length=100)
-	description = models.CharField(max_length=1000,blank=True, null=True)
-	image = models.ImageField(upload_to='equipment_images/', blank=True, null=True)
-
-	def __str__(self):
-		return self.name
 
 class Training(models.Model):
 

@@ -9,16 +9,19 @@ from .models import ExercisesDetail
 from .forms import TrainingForm
 from .forms import ExercisesForm
 
-# Create your views here.
-def workout_list(request):
-    training = Training.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'workout_buddy/workout_list.html', {'training': training})
 
+
+# Create your views here.
 def home_page(request):
     return render(request, 'workout_buddy/home_page.html',)
 
 def contact_page(request):
     return render(request, 'workout_buddy/contact_page.html',)
+
+def workout_list(request):
+    training = Training.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'workout_buddy/workout_list.html', {'training': training})
+
 
 def exercise_list(request):
     exercises = ExercisesDetail.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
