@@ -72,10 +72,9 @@ class ExercisesDetail(models.Model):
 
 	created_date = models.DateTimeField(
             default=timezone.now)
-	published_date = models.DateTimeField(
-            default=timezone.now)
+	published_date = models.DateTimeField(blank=True, null=True)
 
-	equipment = models.ManyToManyField(Equipment,blank=True, null=True)
+	equipment = models.ManyToManyField(Equipment)
 
 
 	def publish(self):

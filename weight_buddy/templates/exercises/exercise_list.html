@@ -14,6 +14,7 @@
             <thead class="thead-dark">
                 <tr>
                     <th>Name</th>
+                    <th>Equipment</th>
                     <th>Type</th>
                     <th>Major Muscule</th>
                     <th>Minior Muscule</th>
@@ -26,7 +27,16 @@
                 {% for exercise in exercises %}
                 <tr>
                     <th>{{ exercise.name }}</th>
-                    <td>{{ exercise.type }}</td>
+                    <td>{{ exercise.equipment }}</td>
+                    <td>
+                        
+
+                        {% for value, text in form.equipment.field.choices %}
+                        {{ value }}:{{ text }}
+                        {% endfor %}
+
+
+                    </td>
                     <td>{{ exercise.major_muscule }}</td>
                     <td>{{ exercise.minior_muscule }}</td>
                     <td><img src="{{ exercise.example.url }}" width="auto" height="125" style="border-radius: 5px;  border: 1px solid rgb(209, 209, 209);"></td>
