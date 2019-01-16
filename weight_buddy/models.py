@@ -75,6 +75,14 @@ class ExercisesDetail(models.Model):
 	def __str__(self):
 		return self.name	
 
+class Equipment(models.Model):
+	name = models.CharField(max_length=100)
+	description = models.CharField(max_length=1000,blank=True, null=True)
+	image = models.ImageField(upload_to='equipment_images/', blank=True, null=True)
+
+	def __str__(self):
+		return self.name
+
 class Training(models.Model):
 
 	PUSH = 'PH'
