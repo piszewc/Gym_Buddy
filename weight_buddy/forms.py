@@ -12,7 +12,6 @@ class TrainingForm(forms.ModelForm):
 
 
 class ExercisesForm(forms.ModelForm):
-    
 
     class Meta:
         model = ExercisesDetail
@@ -23,3 +22,5 @@ class Equipment(forms.ModelForm):
     class Meta:
         model = Equipment
         fields = ('name','description','image')
+
+    

@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from multiselectfield import MultiSelectField
 
 class Equipment(models.Model):
 	name = models.CharField(max_length=100)
@@ -21,46 +22,46 @@ class ExercisesDetail(models.Model):
 
 	type_choices = ((CARDIO,"CARDIO"), (PLYO, "PLYO"), (WEIGHT, "WEIGHT"), (LAPS,"LAPS"))
 	
-	type = models.CharField(
-        max_length=10,
+	type = MultiSelectField(
+        max_length=20,
         choices=type_choices,
         default="WEIGHT",
     )
     
-	FULL_BODY = 'FULL_BODY'
-	BACK = 'BACK'
-	CORE = 'CORE'
-	ARMS = 'ARMS'
-	LEGS = 'LEGS'
+	FB = 'FULL_BODY'
+	BK = 'BACK'
+	CR = 'CORE'
+	AR = 'ARMS'
+	LG = 'LEGS'
 
-	major_muscule_choices = ((FULL_BODY,"FULL BODY"), (BACK, "BACK"), (CORE, "CORE"), (ARMS,"ARMS"), (LEGS,'LEGS'))
+	major_muscule_choices = ((FB,"FULL BODY"), (BK, "BACK"), (CR, "CORE"), (AR,"ARMS"), (LG,'LEGS'))
 
-	major_muscule = models.CharField(
-        max_length=10,
+	major_muscule = MultiSelectField(
+        max_length=19,
         choices=major_muscule_choices,
-        default="FULL BODY",
+        default=FB,
     )
 
-	BICEP = 'BICEP'
-	CALVES = 'CALVES'
-	CHEST = 'CHEST'
-	GLUTES = 'GLUTES'
-	HAMSTRINGS = 'HAMSTRINGS'
-	INNER_THIGH = 'INNER_THIGH'
-	LATS = 'LATS'
-	OBLIQUE = 'OBLIQUE'
-	OUTER_THIGH = 'OUTER_THIGH'
-	QUADS = 'QUADS'
-	SHOULDERS = 'SHOULDERS'
-	TRICEP = 'TRICEP'
+	BC = 'BICEP'
+	CL = 'CALVES'
+	CH = 'CHEST'
+	GT = 'GLUTES'
+	HS = 'HAMSTRINGS'
+	IT = 'INNER_THIGH'
+	LT = 'LATS'
+	OQ = 'OBLIQUE'
+	OT = 'OUTER_THIGH'
+	QD = 'QUADS'
+	SD = 'SHOULDERS'
+	TC = 'TRICEP'
 
-	minior_muscule_choices = ((BICEP,"BICEP"), (CALVES, "CALVES"), (CHEST, "CHEST"), (GLUTES,"GLUTES"), (HAMSTRINGS,'HAMSTRINGS'), (INNER_THIGH,'INNER THIGH'), 
-	(LATS,'LATS'), (OBLIQUE,'OBLIQUE'), (OUTER_THIGH,'OUTER THIGH'), (QUADS,'QUADS'), (SHOULDERS,'SHOULDERS'), (TRICEP,'TRICEP'))
+	minior_muscule_choices = ((BC,"BICEP"), (CL, "CALVES"), (CH, "CHEST"), (GT,"GLUTES"), (HS,'HAMSTRINGS'), (IT,'INNER THIGH'), 
+	(LT,'LATS'), (OQ,'OBLIQUE'), (OT,'OUTER THIGH'), (QD,'QUADS'), (SD,'SHOULDERS'), (TC,'TRICEP'))
 
-	minior_muscule = models.CharField(
-        max_length=10,
+	minior_muscule = MultiSelectField(
+        max_length=50,
         choices=minior_muscule_choices,
-        default="BICEP",
+        default=BC,
     )
 
 
@@ -74,8 +75,7 @@ class ExercisesDetail(models.Model):
             default=timezone.now)
 	published_date = models.DateTimeField(blank=True, null=True)
 
-	equipment = models.ManyToManyField(Equipment)
-
+	equipment = MultiSelectField(Equipment)
 
 	def publish(self):
 		self.published_date = timezone.now()

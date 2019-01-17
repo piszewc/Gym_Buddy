@@ -27,21 +27,20 @@
                 {% for exercise in exercises %}
                 <tr>
                     <th>{{ exercise.name }}</th>
-                    <td>{{ exercise.equipment }}</td>
                     <td>
                         
-
-                        {% for value, text in form.equipment.field.choices %}
-                        {{ value }}:{{ text }}
+                        {% for item in exercise.equipment.all %}
+                          {{ item }}
                         {% endfor %}
 
-
                     </td>
+                    <td>{{ exercise.type }}</td>
+
                     <td>{{ exercise.major_muscule }}</td>
                     <td>{{ exercise.minior_muscule }}</td>
                     <td><img src="{{ exercise.example.url }}" width="auto" height="125" style="border-radius: 5px;  border: 1px solid rgb(209, 209, 209);"></td>
-                    <td>{{ exercise.description }}</td>
-                    <td>{{ exercise.modification }}</td>
+                    <td>{{ exercise.description|default:"" }}</td>
+                    <td>{{ exercise.modification|default:"" }}</td>
 
                 </tr>
                 {% endfor %}

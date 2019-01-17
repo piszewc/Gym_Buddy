@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 	'weight_buddy',
     'bootstrap4',
+    'multiselectfield',
 ]
 
 MIDDLEWARE = [
