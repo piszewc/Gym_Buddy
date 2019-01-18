@@ -124,7 +124,8 @@ def exercises_upload(request):
         minior_muscule = column[4],
         description = column[5],
         modification = column[6],
-        example = column[7]
+        example = column[7],
+        published_date = "2019-01-17 22:31:44.781964" 
         )
     context = {}
     return render(request, template, context)

@@ -27,10 +27,10 @@
                 {% for exercise in exercises %}
                 <tr>
                     <th>{{ exercise.name }}</th>
-                    <td>
+                    <td style="text-transform: uppercase;">
                         
                         {% for item in exercise.equipment.all %}
-                          {{ item }}
+                          {{ item }}{% if not forloop.last %}, {% endif %}
                         {% endfor %}
 
                     </td>
@@ -38,8 +38,14 @@
 
                     <td>{{ exercise.major_muscule }}</td>
                     <td>{{ exercise.minior_muscule }}</td>
-                    <td><img src="{{ exercise.example.url }}" width="auto" height="125" style="border-radius: 5px;  border: 1px solid rgb(209, 209, 209);"></td>
-                    <td>{{ exercise.description|default:"" }}</td>
+                    
+                    <td>
+                            {% if exercise.example %}
+
+                        <img src="{{ exercise.example.url|default_if_none:'#' }}" width="auto" height="125" style="border-radius: 5px;  border: 1px solid rgb(209, 209, 209);"></td>
+                          {% endif %}
+
+                        <td>{{ exercise.description|default:"" }}</td>
                     <td>{{ exercise.modification|default:"" }}</td>
 
                 </tr>
