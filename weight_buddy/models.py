@@ -19,8 +19,10 @@ class ExercisesDetail(models.Model):
 	PLYO = "PLYO"
 	WEIGHT = "WEIGHT"
 	LAPS = "LAPS"
+	MACHINE = "MACHINE"
 
-	type_choices = ((CARDIO,"CARDIO"), (PLYO, "PLYO"), (WEIGHT, "WEIGHT"), (LAPS,"LAPS"))
+
+	type_choices = ((CARDIO,"CARDIO"), (PLYO, "PLYO"), (WEIGHT, "WEIGHT"), (LAPS,"LAPS"), (MACHINE,"MACHINE"))
 	
 	type = MultiSelectField(
         max_length=20,
