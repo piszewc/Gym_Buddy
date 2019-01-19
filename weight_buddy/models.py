@@ -89,19 +89,19 @@ class ExercisesDetail(models.Model):
 
 class UserDetailsExercises(models.Model):
 	name = models.CharField(max_length=200)
-	sets = models.CharField(max_length=200)
-	repets = models.CharField(max_length=200)
-	rest = models.CharField(max_length=200)
-	notes = models.CharField(max_length=200)
+	sets = models.CharField(max_length=200, blank=True, null=True)
+	repets = models.CharField(max_length=200, blank=True, null=True)
+	rest = models.CharField(max_length=200, blank=True, null=True)
+	notes = models.CharField(max_length=200, blank=True, null=True)
 
 class Training(models.Model):
 
 	author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-	name = models.CharField(max_length=200)
-
-	minior_muscule_used = models.CharField(max_length=200)
+	name = models.CharField(max_length=200, blank=True, null=True)
+	workout_name = models.CharField(max_length=200)
+	minior_muscule_used = models.CharField(max_length=200, blank=True, null=True)
 	
-	comments = models.CharField(max_length=200) 
+	comments = models.CharField(max_length=200, blank=True, null=True) 
 
 	created_date = models.DateTimeField(
             default=timezone.now)
@@ -116,4 +116,4 @@ class Training(models.Model):
 
 class WorkOut(models.Model):
 
-	name = models.CharField(max_length=200)
+	name = models.CharField(max_length=200, blank=True, null=True)
