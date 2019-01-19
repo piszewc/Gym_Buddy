@@ -28,6 +28,13 @@
                     <a href="#">Settings</a>
                     <a href="#">Need help?</a>
                     <a href="#">Share With Friends</a>
+                    
+                    <div class="page-header">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'training_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus">+</span></a>
+                    <a href="{% url 'exercise_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus">+</span></a>
+                    {% endif %}
+                    </div>
                 </div>
 
             {% endblock %}
@@ -36,10 +43,7 @@
             <div class="main">
 
                 <div class="page-header">
-                    {% if user.is_authenticated %}
-                    <a href="{% url 'training_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-                    <a href="{% url 'exercise_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-                    {% endif %}
+                    
                     <h1><a href="/">Workout Weight</a></h1>
                 </div>
                 <div class="container">

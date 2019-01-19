@@ -55,8 +55,16 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'contact_page' %}">Contact</a>
         </li>
+        {% if user.is_authenticated %}
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'exercise_new' %}">Add New Exercises</a>
+        </li>
+        {% endif %}
+
       </ul>
     </div>
+
   </nav>
 
   {% endblock %}
