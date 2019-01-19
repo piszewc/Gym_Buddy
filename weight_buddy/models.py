@@ -83,30 +83,28 @@ class ExercisesDetail(models.Model):
 		self.published_date = timezone.now()
 		self.save()
 
-
 	def __str__(self):
 		return self.name	
 
 
+class UserDetailsExercises(models.Model):
+	name = models.CharField(max_length=200)
+	sets = models.CharField(max_length=200)
+	repets = models.CharField(max_length=200)
+	rest = models.CharField(max_length=200)
+	notes = models.CharField(max_length=200)
+
 class Training(models.Model):
 
-	PUSH = 'PH'
-	PULL = 'PL'
-	LEG = 'LG'
 	author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-	workout_type_choices = ((PUSH, 'Push'),(PULL, 'Pull'),(LEG, 'Leg'),)
-	workout_type = models.CharField(
-        max_length=2,
-        choices=workout_type_choices,
-        default=PUSH,
-    )
+	name = models.CharField(max_length=200)
+
+	minior_muscule_used = models.CharField(max_length=200)
 	
-	workout_name =models.CharField(max_length=200)
+	comments = models.CharField(max_length=200) 
 
 	created_date = models.DateTimeField(
             default=timezone.now)
-	published_date = models.DateTimeField(
-            blank=True, null=True)
 
 
 	def publish(self):
@@ -115,3 +113,7 @@ class Training(models.Model):
 
 	def __str__(self):
 		return self.workout_name
+
+class WorkOut(models.Model):
+
+	name = models.CharField(max_length=200)
