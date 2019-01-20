@@ -88,7 +88,7 @@ class ExercisesDetail(models.Model):
 
 
 class UserDetailsExercises(models.Model):
-	name = models.CharField(max_length=200)
+	name = models.ForeignKey('ExercisesDetail.name', on_delete=models.CASCADE)
 	sets = models.CharField(max_length=200, blank=True, null=True)
 	repets = models.CharField(max_length=200, blank=True, null=True)
 	rest = models.CharField(max_length=200, blank=True, null=True)
