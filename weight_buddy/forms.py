@@ -1,15 +1,7 @@
 from django import forms
 
-from .models import Training
 from .models import ExercisesDetail
 from .models import Equipment
-
-class TrainingForm(forms.ModelForm):
-
-    class Meta:
-        model = Training
-        fields = ('workout_name',)
-
 
 class ExercisesForm(forms.ModelForm):
 
