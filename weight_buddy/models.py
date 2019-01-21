@@ -95,6 +95,9 @@ class UserDetailsExercises(models.Model):
 	rest = models.CharField(max_length=200, blank=True, null=True)
 	notes = models.CharField(max_length=200, blank=True, null=True)
 
+	def __str__(self):
+			return self.name
+
 class Training(models.Model):
 
 	author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
@@ -124,3 +127,5 @@ class WorkOut(models.Model):
 	notes = models.CharField(max_length=200, blank=True, null=True)
 	created_date = models.DateTimeField(default=timezone.now)
 
+	def __str__(self):
+			return self.name
