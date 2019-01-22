@@ -109,7 +109,9 @@ class UserDetailsExercise(models.Model):
 class Training(models.Model):
 
 	author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-	user_details_exercises = models.ForeignKey(UserDetailsExercise, on_delete=models.CASCADE)
+	user_details_exercises = models.ManyToManyField('UserDetailsExercise')
+
+
 	name = models.CharField(max_length=200, blank=True, null=True)
 
 	minior_muscule_used = models.CharField(max_length=200, blank=True, null=True)
@@ -129,7 +131,8 @@ class Training(models.Model):
 class WorkOut(models.Model):
 
 	author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-	training = models.ForeignKey(Training, on_delete=models.CASCADE)
+	training = models.ManyToManyField('Training')
+
 	name = models.CharField(max_length=200, blank=True, null=True)
 
 	notes = models.CharField(max_length=200, blank=True, null=True)
