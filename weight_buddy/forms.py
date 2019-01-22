@@ -2,7 +2,7 @@ from django import forms
 
 from .models import ExercisesDetail
 from .models import Equipment
-from .models import UserDetailsExercises
+from .models import UserDetailsExercise
 
 class ExercisesForm(forms.ModelForm):
 
@@ -16,8 +16,8 @@ class Equipment(forms.ModelForm):
         model = Equipment
         fields = ('name','description','image')
 
-class UserDetailsExercises(forms.ModelForm):
+class UserDetailsExercise(forms.Form):
 
     class Meta:
-        model = UserDetailsExercises
-        fields = ('exercises_detail','sets','repets','rest','notes')
+        model = UserDetailsExercise
+        fields = ('exercise','sets','repets','rest','notes')

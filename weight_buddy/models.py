@@ -87,21 +87,29 @@ class ExercisesDetail(models.Model):
 		return self.name	
 
 
-class UserDetailsExercises(models.Model):
+class UserDetailsExercise(models.Model):
 	author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
 	exercises_detail = models.ForeignKey(ExercisesDetail, on_delete=models.CASCADE)
 	sets = models.CharField(max_length=200, blank=True, null=True)
 	repets = models.CharField(max_length=200, blank=True, null=True)
 	rest = models.CharField(max_length=200, blank=True, null=True)
 	notes = models.CharField(max_length=200, blank=True, null=True)
+	name = models.CharField(max_length=200, blank=True, null=True) 
+
+	created_date = models.DateTimeField(
+		default=timezone.now)
+
+	def create(self):
+		self.created_date = timezone.now()
+		self.save()
 
 	def __str__(self):
-			return self.name
+		return self.name
 
 class Training(models.Model):
 
 	author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-	user_details_exercises = models.ForeignKey(UserDetailsExercises, on_delete=models.CASCADE)
+	user_details_exercises = models.ForeignKey(UserDetailsExercise, on_delete=models.CASCADE)
 	name = models.CharField(max_length=200, blank=True, null=True)
 
 	minior_muscule_used = models.CharField(max_length=200, blank=True, null=True)
