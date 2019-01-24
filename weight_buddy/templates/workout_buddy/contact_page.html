@@ -1,17 +1,70 @@
 {% extends 'workout_buddy/base.html' %}
 
 {% block content %}
-<div class="container-fluid">
-    <div class="row justify-content-center">
+<!-- Contact Us Section -->
+<section class="Material-contact-section section-padding section-dark ">
+    <div class="container border mt-5">
+        <div class="row">
+            <!-- Section Titile -->
+            <div class="col-md-7 p-5 contact-widget-section2 wow animated fadeInLeft bg-light " data-wow-delay=".2s">
 
-        <div class="col-8 mt-md-4">
-            <h2>About Gym Buddy</h2>
-            <p>We're a small company focused on providing tools and support for people who want to start or take more
-                control over their training routine. Given the saturation of infomation about exercises, we focus on
-                providing simple form to create your workout routines and track your progress.</p>
-            <p>This site is part of our project to make </p>
+                <h1 class="section-title">Contact Information</h1>
+
+                <p>Have any feedback or questions? Submit it here and we'll get back to you as soon as possible
+                    (usually within 1 or 2 business days).</p>
+                <div class="dropdown-divider mt-5"></div>
+
+                <h3 class="mt-5">Get answers from our Knowledge Base</h3>
+                <p>We have the answers to a bunch of miscellaneous questions in our Knowledge Base, from tips on using
+                    the site to subscription management.</p>
+
+                <p> You can search the Knowledge Base through the popup in the bottom right of the page, or by clicking
+                    the button here.</p>
+                <button type="button" class="btn btn-outline-primary mt-2">Search the Knowledge Base</button>
+
+            </div>
+            <!-- contact form -->
+            <div class="col-md-5 p-5 wow animated fadeInRight" data-wow-delay=".2s">
+
+                <h1>CONTACT US</h1>
+                <p>PLEASE TELL US HOW WE CAN HELP YOU:</p>
+
+                <form class="shake" role="form" method="post" id="contactForm" name="contact-form" data-toggle="validator">
+                    <!-- Name -->
+                    <div class="form-group label-floating">
+                        <label class="control-label" for="name">Name</label>
+                        <input class="form-control" id="name" type="text" name="name" required data-error="Please enter your name">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <!-- email -->
+                    <div class="form-group label-floating">
+                        <label class="control-label" for="email">Email</label>
+                        <input class="form-control" id="email" type="email" name="email" required data-error="Please enter your Email">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <!-- Subject -->
+                    <div class="form-group label-floating">
+                        <label class="control-label">Subject</label>
+                        <input class="form-control" id="msg_subject" type="text" name="subject" required data-error="Please enter your message subject">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <!-- Message -->
+                    <div class="form-group label-floating">
+                        <label for="message" class="control-label">Message</label>
+                        <textarea class="form-control" rows="3" id="message" name="message" required data-error="Write your message"></textarea>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <!-- Form Submit -->
+                    <div class="form-submit mt-5">
+                        <button class="btn btn-primary" type="submit" id="form-submit"><i class="material-icons mdi mdi-message-outline"></i>
+                            Send Message</button>
+                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
+</section>
 
 {% endblock %}
