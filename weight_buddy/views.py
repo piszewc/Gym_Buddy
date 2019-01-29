@@ -11,14 +11,14 @@ from .forms import ExercisesForm
 
 # Create your views here.
 def home_page(request):
-    return render(request, 'workout_buddy/home_page.html',)
+    return render(request, 'workout_buddy/home_page.html', {'nbar': 'home_page'})
 
 def contact_page(request):
-    return render(request, 'workout_buddy/contact_page.html',)
+    return render(request, 'workout_buddy/contact_page.html', {'nbar': 'contact_page'})
 
 def exercise_list(request):
     exercises = ExercisesDetail.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'exercises/exercise_list.html', {'exercises': exercises})
+    return render(request, 'exercises/exercise_list.html', {'exercises': exercises, 'nbar': 'exercise_list'})
 
 def exercise_detail(request, pk):
     exercise = get_object_or_404(ExercisesDetail, pk=pk)
