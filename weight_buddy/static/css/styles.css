@@ -60,9 +60,7 @@ h6 { font-size: .75em; }
     margin-bottom: 1.5rem;
     text-align: center;
   }
-  .marketing h2 {
-    font-weight: 400;
-  }
+
   .marketing .col-lg-4 p {
     margin-right: .75rem;
     margin-left: .75rem;
@@ -83,6 +81,11 @@ h6 { font-size: .75em; }
     letter-spacing: -.05rem;
   }
   
+  .featurette-h-bold {
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -.05rem;
+  }
   
   /* RESPONSIVE CSS
   -------------------------------------------------- */
@@ -95,9 +98,7 @@ h6 { font-size: .75em; }
       line-height: 1.4;
     }
   
-    .featurette-heading {
-      font-size: 50px;
-    }
+
   }
   
   @media (min-width: 62em) {
