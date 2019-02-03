@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 	'weight_buddy',
     'bootstrap4',
     'multiselectfield',
+
 ]
 
 MIDDLEWARE = [

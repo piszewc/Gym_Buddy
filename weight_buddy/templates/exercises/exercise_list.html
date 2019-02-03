@@ -1,13 +1,19 @@
 {% extends 'workout_buddy/base.html' %}
 {% block content %}
-
+<script src="/static/js/ddtf.js"></script>
 
 <section class="Material-contact-section section-padding section-dark ">
     <div class="container">
         <div class="col-md-12 mt-5">
             <h1>Exercise Guide</h1>
             <p class="lead">Browse our illustrated library of at-home and gym exercises.</p>
-            <table class="table table-striped">
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row justify-content-md-center">
+    <div class="col-md-10 mt-3">
+
+            <table id="exercise_list_table"class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
                         <th>Name</th>
@@ -16,8 +22,8 @@
                         <th>Major Muscule</th>
                         <th>Minior Muscule</th>
                         <th>Example</th>
-                        <th>Description</th>
-                        <th>Modifications</th>
+                        <th style="width:150px; max-width: 150px;">Description</th>
+                        <th style="width:150px; max-width: 150px;">Modifications</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,8 +48,8 @@
                             <img src="{{ exercise.example.url|default_if_none:'#' }}" width="auto" height="125" style="border-radius: 5px;  border: 1px solid rgb(209, 209, 209);"></td>
                         {% endif %}
 
-                        <td>{{ exercise.description|default:"" }}</td>
-                        <td>{{ exercise.modification|default:"" }}</td>
+                        <td style="width:150px; max-width: 150px;">{{ exercise.description|default:"" }}</td>
+                        <td style="width:150px; max-width: 150px;">{{ exercise.modification|default:"" }}</td>
 
                     </tr>
                     {% endfor %}
@@ -52,6 +58,12 @@
         </div>
     </div>
     </div>
-    </div>
+
+
     </section>
+
+    <script>
+        jQuery('#exercise_list_table').ddTableFilter();
+        </script>
+
     {% endblock %}
