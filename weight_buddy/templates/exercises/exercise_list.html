@@ -1,6 +1,8 @@
 {% extends 'workout_buddy/base.html' %}
 {% block content %}
-<script src="/static/js/ddtf.js"></script>
+
+<script src="/static/js/hhs.js"></script>
+<!--<script src="/static/js/ddtf.js"></script>-->
 
 <section class="Material-contact-section section-padding section-dark ">
     <div class="container">
@@ -12,6 +14,18 @@
     <div class="container-fluid">
         <div class="row justify-content-md-center">
     <div class="col-md-10 mt-3">
+
+        <div class="optionsDiv">
+            Filter By Position
+            <select id="selectField">
+                <option value="All" selected>All</option>
+                <option value="WEIGHT">WEIGHT</option>
+                <option value="Assistant">Assistant</option>
+                <option value="Professor">Professor</option>
+    
+            </select>
+       
+        </div>
 
             <table id="exercise_list_table"class="table table-striped">
                 <thead class="thead-dark">
@@ -28,7 +42,7 @@
                 </thead>
                 <tbody>
                     {% for exercise in exercises %}
-                    <tr>
+                    <tr ex_type="{{ exercise.type }}">
                         <th>{{ exercise.name }}</th>
                         <td style="text-transform: uppercase;">
 
