@@ -6,7 +6,7 @@
 
     <div class="container">
         <div class="col-md-12 mt-5">
-            <h1>Exercise Guide</h1>
+            <h1 class="text-primary">Exercise Guide</h1>
             <p class="lead">Browse our illustrated library of at-home and gym exercises.</p>
         </div>
     </div>
@@ -20,7 +20,7 @@
                         <th>Name</th>
                         <th>Equipment</th>
                         <th>
-                            <select class='dropdown thead-dark' style="width:12em" id="type">
+                            <select class='dropdown thead-dark' style="width:10em" id="type">
                                 <option value="all">TYPES</option>
                                 <option value="WEIGHT">WEIGHT</option>
                                 <option value="PLYO">PLYO</option>
@@ -63,7 +63,7 @@
                 </thead>
                 <tbody id='exercise-list-html'>
                     {% for exercise in exercises %}
-                    <tr class="{{ exercise.type }}-type {{ exercise.major_muscule }}-major_muscule {{ exercise.minior_muscule }}-minior_muscule">
+                    <tr class="{{ exercise.type }}-type; {{ exercise.major_muscule }}-major_muscule; {{ exercise.minior_muscule }}-minior_muscule">
                         <th>{{ exercise.name }}</th>
                         <td style="text-transform: uppercase;">
 

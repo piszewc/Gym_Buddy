@@ -12,6 +12,8 @@ urlpatterns = [
     path('exercises/new', views.exercise_new, name='exercise_new'),
     path('exercises/<int:pk>/edit/', views.exercise_edit, name='exercise_edit'),
     
-    path('contact/', views.contact_page, name='contact_page'),
+    path('contact/', views.contact_page, name='contact_page '),
+    path('about/', views.about_page, name='about_page'),
+
     path('upload-csv/', views.exercises_upload, name="exercises_upload"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

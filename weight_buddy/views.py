@@ -16,6 +16,9 @@ def home_page(request):
 def contact_page(request):
     return render(request, 'workout_buddy/contact_page.html', {'nbar': 'contact_page'})
 
+def about_page(request):
+    return render(request, 'workout_buddy/about_page.html', {'nbar': 'about_page'})
+
 def exercise_list(request):
     exercises = ExercisesDetail.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'exercises/exercise_list.html', {'exercises': exercises, 'nbar': 'exercise_list'})
