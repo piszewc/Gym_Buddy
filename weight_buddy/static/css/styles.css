@@ -112,7 +112,8 @@ h6 { font-size: .75em; }
   text-align: center;
 }
 
-.hidden-course,
-.hidden-location {
+.hidden-type,
+.hidden-major_muscule,
+.hidden-minior_muscule {
     display: none;
 }

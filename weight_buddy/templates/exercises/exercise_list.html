@@ -2,10 +2,8 @@
 {% block content %}
 
 
-<input id="clickMe" type="button" value="clickme" onclick="doFunction();" />
-
-
 <section class="Material-contact-section section-padding section-dark ">
+
     <div class="container">
         <div class="col-md-12 mt-5">
             <h1>Exercise Guide</h1>
@@ -13,116 +11,89 @@
         </div>
     </div>
 
-    <select id="location">
-            <option value="all">All Locations ...</option>
-            <option value="Austin">Austin, TX</option>
-            <option value="Charlotte">Charlotte, NC</option>
-            <option value="Raleigh">Raleigh, NC</option>
-        </select>
-
-        <select id="course">
-            <option value="all">All Courses ...</option>
-            <option value="csm">Certified Scrum Master (CSM)</option>
-            <option value="cspo">Certified Scrum Product Owner (CSPO)</option>
-            <option value="cal">Certified Agile Leadership (CAL)</option>
-            <option value="safe">Scaled Agile Framework (SAFe&reg;)</option>
-            <option value="kanban">Kanban</option>
-        </select>
-
-        <table id="events-table" class="table">
-            <tbody>
-                <tr class="kanban-event Austin">
-                    <td>Kanban - Austin</td>
-                </tr>
-                <tr class="csm-event Charlotte">
-                    <td>CSM - Charlotte</td>
-                </tr>
-                <tr class="cal-event Charlotte">
-                    <td>Cal - Charlotte</td>
-                </tr>
-                <tr class="cspo-event Austin">
-                    <td>CSPO - Austin</td>
-                </tr>
-                <tr class="cal-event Raleigh">
-                    <td>Cal - Raleigh</td>
-                </tr>
-                <tr class="kanban Charlotte">
-                    <td>Kanban - Charlotte</td>
-                </tr>
-                <tr class="cspo-event Austin">
-                    <td>CSPO - Austin</td>
-                </tr>
-                <tr class="csm-event Charlotte">
-                    <td>CSM - Charlotte</td>
-                </tr>
-                <tr class="safe-event Austin">
-                    <td>SAFE - Austin</td>
-                </tr>
-                <tr class="cspo-event Raleigh">
-                    <td>CSPO - Raleigh</td>
-                </tr>
-                <tr class="csm-event Charlotte">
-                    <td>CSM - Charlotte</td>
-                </tr>
-                <tr class="csm-event Raleigh">
-                    <td>CSM - Raleigh</td>
-                </tr>
-            </tbody>
-        </table>
-
-
-
     <div class="container-fluid">
-        <div class="row justify-content-md-center"></div>
-            <div class="col-md-10 mt-3">
-                <table id='exercise_list_html' class="table table-striped">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>Name</th>
-                            <th>Equipment</th>
-                            <th><select class="js-example-basic-multiple" name="states[]" multiple="multiple">
-                                    <option value="WEIGHT">WEIGHT</option>
-                                    <option value="PLYO">PLYO </option>
-                                </select></th>
-                            <th>Major Muscule</th>
-                            <th>Minior Muscule</th>
-                            <th>Example</th>
-                            <th style="width:150px; max-width: 150px;">Description</th>
-                            <th style="width:150px; max-width: 150px;">Modifications</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for exercise in exercises %}
-                        <tr ex_type="{{ exercise.type }}">
-                            <th>{{ exercise.name }}</th>
-                            <td style="text-transform: uppercase;">
+        <div class="row justify-content-md-center">
+        <div class="col-md-10 mt-3">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Equipment</th>
+                        <th>
+                            <select class='dropdown thead-dark' style="width:12em" id="type">
+                                <option value="all">TYPES</option>
+                                <option value="WEIGHT">WEIGHT</option>
+                                <option value="PLYO">PLYO</option>
+                                <option value="MACHINE">MACHINE</option>
+                                <option value="CARDIO">CARDIO</option>
+                                <option value="LAPS">LAPS</option>
+                            </select>
+                        </th>
+                        <th>
+                            <select class='dropdown thead-dark' style="width:12em" id="major_muscule">
+                                <option value="all">MAJOR MUSCULE</option>
+                                <option value="CORE">CORE</option>
+                                <option value="ARMS">ARMS</option>
+                                <option value="FULL_BODY">FULL BODY</option>
+                                <option value="LEGS">LEGS</option>
+                                <option value="BACK">BACK</option>
+                            </select>
+                        </th>
+                        <th><select class='dropdown thead-dark' style="width:12em" id="minior_muscule">
+                                <option value="all">MINIOR MUSCULE</option>
+                                <option value="BICEP">BICEP</option>
+                                <option value="CALVES">CALVES</option>
+                                <option value="CHEST">CHEST</option>
+                                <option value="GLUTES">GLUTES</option>
+                                <option value="HAMSTRINGS">HAMSTRINGS</option>
+                                <option value="INNER_THIGH">INNER_THIGH</option>
+                                <option value="LATS">LATS</option>
+                                <option value="OBLIQUE">OBLIQUE</option>
+                                <option value="OUTER_THIGH">OUTER_THIGH</option>
+                                <option value="QUADS">QUADS</option>
+                                <option value="SHOULDERS">SHOULDERS</option>
+                                <option value="TRICEP">TRICEP</option>
 
-                                {% for item in exercise.equipment.all %}
-                                {{ item }}{% if not forloop.last %}, {% endif %}
-                                {% endfor %}
+                            </select>
+                        </th>
+                        <th>Example</th>
+                        <th style="width:150px; max-width: 150px;">Description</th>
+                        <th style="width:150px; max-width: 150px;">Modifications</th>
+                    </tr>
+                </thead>
+                <tbody id='exercise-list-html'>
+                    {% for exercise in exercises %}
+                    <tr class="{{ exercise.type }}-type {{ exercise.major_muscule }}-major_muscule {{ exercise.minior_muscule }}-minior_muscule">
+                        <th>{{ exercise.name }}</th>
+                        <td style="text-transform: uppercase;">
 
-                            </td>
-                            <td>{{ exercise.type }}</td>
+                            {% for item in exercise.equipment.all %}
+                            {{ item }}{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
 
-                            <td>{{ exercise.major_muscule }}</td>
-                            <td>{{ exercise.minior_muscule }}</td>
+                        </td>
+                        <td>{{ exercise.type }}</td>
 
-                            <td>
-                                {% if exercise.example %}
+                        <td>{{ exercise.major_muscule }}</td>
+                        <td>{{ exercise.minior_muscule }}</td>
 
-                                <img src="{{ exercise.example.url|default_if_none:'#' }}" width="auto" height="125"
-                                    style="border-radius: 5px;  border: 1px solid rgb(209, 209, 209);"></td>
-                            {% endif %}
+                        <td>
+                            {% if exercise.example %}
 
-                            <td style="width:150px; max-width: 150px;">{{ exercise.description|default:"" }}</td>
-                            <td style="width:150px; max-width: 150px;">{{ exercise.modification|default:"" }}</td>
+                            <img src="{{ exercise.example.url|default_if_none:'#' }}" width="auto" height="125"
+                                style="border-radius: 5px;  border: 1px solid rgb(209, 209, 209);"></td>
+                        {% endif %}
 
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+                        <td style="width:150px; max-width: 150px;">{{ exercise.description|default:"" }}</td>
+                        <td style="width:150px; max-width: 150px;">{{ exercise.modification|default:"" }}</td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
+    </div>
+</div>
 
 
 </section>
