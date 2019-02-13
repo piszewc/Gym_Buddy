@@ -14,14 +14,14 @@
     <div class="container-fluid">
         <div class="row justify-content-md-center">
         <div class="col-md-10 mt-3">
-            <table class="table table-striped">
+            <table id="myTable"class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Name</th>
-                        <th>Equipment</th>
+                        <th style="width:12em">Name</th>
+                        <th style="width:10em">Equipment</th>
                         <th>
                             <select class='dropdown thead-dark' style="width:10em" id="type">
-                                <option value="all">TYPES</option>
+                                <option value="">TYPES</option>
                                 <option value="WEIGHT">WEIGHT</option>
                                 <option value="PLYO">PLYO</option>
                                 <option value="MACHINE">MACHINE</option>
@@ -31,16 +31,16 @@
                         </th>
                         <th>
                             <select class='dropdown thead-dark' style="width:12em" id="major_muscule">
-                                <option value="all">MAJOR MUSCULE</option>
+                                <option value="">MAJOR MUSCULE</option>
                                 <option value="CORE">CORE</option>
                                 <option value="ARMS">ARMS</option>
-                                <option value="FULL_BODY">FULL BODY</option>
+                                <option value="FULL BODY">FULL BODY</option>
                                 <option value="LEGS">LEGS</option>
                                 <option value="BACK">BACK</option>
                             </select>
                         </th>
                         <th><select class='dropdown thead-dark' style="width:12em" id="minior_muscule">
-                                <option value="all">MINIOR MUSCULE</option>
+                                <option value="">MINIOR MUSCULE</option>
                                 <option value="BICEP">BICEP</option>
                                 <option value="CALVES">CALVES</option>
                                 <option value="CHEST">CHEST</option>
@@ -56,14 +56,14 @@
 
                             </select>
                         </th>
-                        <th>Example</th>
+                        <th style="width:12em">Example</th>
                         <th style="width:150px; max-width: 150px;">Description</th>
                         <th style="width:150px; max-width: 150px;">Modifications</th>
                     </tr>
                 </thead>
                 <tbody id='exercise-list-html'>
                     {% for exercise in exercises %}
-                    <tr class="{{ exercise.type }}-type; {{ exercise.major_muscule }}-major_muscule; {{ exercise.minior_muscule }}-minior_muscule">
+                    <tr class="{{ exercise.type }}-type {{ exercise.major_muscule }}-major_muscule {{ exercise.minior_muscule }}-minior_muscule">
                         <th>{{ exercise.name }}</th>
                         <td style="text-transform: uppercase;">
 

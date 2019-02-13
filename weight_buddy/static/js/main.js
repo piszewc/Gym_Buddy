@@ -3,28 +3,67 @@ jQuery(function () {
 	jQuery('#type, #major_muscule, #minior_muscule').select2();
 
 	jQuery("#type").on("select2:select", function (e) {
-		var type = jQuery('#type').val();
-		jQuery('#exercise-list-html tr.hidden-type').removeClass('hidden-type');
-		jQuery('#exercise-list-html tr:not(".' +type+'-type")').addClass('hidden-type');
-		if (type == 'all') {
-			jQuery('#exercise-list-html tr').removeClass('hidden-type');
+
+		var input, filter, table, tr, td, i, txtValue;
+		input = document.getElementById("type");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("exercise-list-html");
+		tr = table.getElementsByTagName("tr");
+
+		// Loop through all table rows, and hide those who don't match the search query
+		for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[1];
+			if (td) {
+				txtValue = td.textContent || td.innerText;
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = "";
+				} else {
+					tr[i].style.display = "none";
+				}
+			}
 		}
 	});
 
 	jQuery("#major_muscule").on("select2:select", function (e) {
-		var major_muscule = $('#major_muscule').val();
-		jQuery('#exercise-list-html tr.hidden-major_muscule').removeClass('hidden-major_muscule');
-		jQuery('#exercise-list-html tr:not(".' + major_muscule + '-major_muscule")').addClass('hidden-major_muscule');
-		if (major_muscule == 'all') {
-			jQuery('#exercise-list-html tr').removeClass('hidden-major_muscule');
+		var input, filter, table, tr, td, i, txtValue;
+		input = document.getElementById("major_muscule");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("exercise-list-html");
+		tr = table.getElementsByTagName("tr");
+
+		// Loop through all table rows, and hide those who don't match the search query
+		for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[2];
+			if (td) {
+				txtValue = td.textContent || td.innerText;
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = "";
+				} else {
+					tr[i].style.display = "none";
+				}
+			}
 		}
 	});
+
 	jQuery("#minior_muscule").on("select2:select", function (e) {
-		var minior_muscule = $('#minior_muscule').val();
-		jQuery('#exercise-list-html tr.hidden-minior_muscule').removeClass('hidden-minior_muscule');
-		jQuery('#exercise-list-html tr:not(".' + minior_muscule + '-minior_muscule")').addClass('hidden-minior_muscule');
-		if (minior_muscule == 'all') {
-			jQuery('#exercise-list-html tr').removeClass('hidden-minior_muscule');
+		var input, filter, table, tr, td, i, txtValue;
+		input = document.getElementById("minior_muscule");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("exercise-list-html");
+		tr = table.getElementsByTagName("tr");
+
+		// Loop through all table rows, and hide those who don't match the search query
+		for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[3];
+			if (td) {
+				txtValue = td.textContent || td.innerText;
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = "";
+				} else {
+					tr[i].style.display = "none";
+				}
+			}
 		}
 	});
+
 });
