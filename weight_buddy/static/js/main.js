@@ -12,7 +12,7 @@ jQuery(function () {
 
 		// Loop through all table rows, and hide those who don't match the search query
 		for (i = 0; i < tr.length; i++) {
-			td = tr[i].getElementsByTagName("td")[1];
+			td = tr[i].getElementsByTagName("td")[2];
 			if (td) {
 				txtValue = td.textContent || td.innerText;
 				if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -24,6 +24,7 @@ jQuery(function () {
 		}
 	});
 
+	
 	jQuery("#major_muscule").on("select2:select", function (e) {
 		var input, filter, table, tr, td, i, txtValue;
 		input = document.getElementById("major_muscule");
@@ -33,7 +34,7 @@ jQuery(function () {
 
 		// Loop through all table rows, and hide those who don't match the search query
 		for (i = 0; i < tr.length; i++) {
-			td = tr[i].getElementsByTagName("td")[2];
+			td = tr[i].getElementsByTagName("td")[3];
 			if (td) {
 				txtValue = td.textContent || td.innerText;
 				if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -54,7 +55,7 @@ jQuery(function () {
 
 		// Loop through all table rows, and hide those who don't match the search query
 		for (i = 0; i < tr.length; i++) {
-			td = tr[i].getElementsByTagName("td")[3];
+			td = tr[i].getElementsByTagName("td")[4];
 			if (td) {
 				txtValue = td.textContent || td.innerText;
 				if (txtValue.toUpperCase().indexOf(filter) > -1) {
