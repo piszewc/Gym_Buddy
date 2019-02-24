@@ -1,5 +1,6 @@
 {% extends 'workout_buddy/base.html' %}
 
+{% load bootstrap4 %}
 {# Display a form #}
 {% block content %}
 
@@ -11,6 +12,8 @@
   <div class="col-md-7">
 
     {% csrf_token %}
+    {% bootstrap_form form %}
+
     {% buttons %}
         <button type="submit" class="btn btn-primary">Submit</button>
     {% endbuttons %}
