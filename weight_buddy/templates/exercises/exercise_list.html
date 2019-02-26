@@ -79,10 +79,10 @@
 
                             <td>
                                 {% if exercise.example %}
-
+                                <a href="{{ exercise.example.url|default_if_none:'#' }}" data-lightbox="{{ exercise.example.url|default_if_none:'#' }}">
                                 <img src="{{ exercise.example.url|default_if_none:'#' }}" width="auto" height="80"
-                                    style="border-radius: 5px;  border: 1px solid rgb(209, 209, 209);"></td>
-                            {% endif %}
+                                    style="border-radius: 5px;  border: 1px solid rgb(209, 209, 209);"/></a></td>
+                                {% endif %}
 
                             <td style="width:150px; max-width: 150px;">{{ exercise.description|default:"" }}</td>
                             <td style="width:150px; max-width: 150px;">{{ exercise.modification|default:"" }}</td>

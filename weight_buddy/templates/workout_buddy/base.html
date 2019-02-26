@@ -4,25 +4,30 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="title" content="">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
+  <meta charset="utf-8">
+  <meta name="title" content="">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
   <title>GYM BUDDY</title>
 
-  <script  src="http://code.jquery.com/jquery-3.3.1.js"  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="  crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-    crossorigin="anonymous">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+  <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
     crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab|Montserrat" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-
+  
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <script type='text/javascript' src="{% static 'js/main.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'css/lightbox.css' %}">
+  <script type='text/javascript' src="{% static 'js/lightbox.js' %}"></script>
 
 </head>
 
@@ -35,8 +40,8 @@
       <img src="/static/images/logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
       GYM BUDDY
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-      aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -51,8 +56,8 @@
           <a class="nav-link" href="{% url 'contact_page' %}">Contact</a>
         </li>
         <li class="nav-item {% if nbar == 'about_page' %}active{% endif %}">
-            <a class="nav-link" href="{% url 'about_page' %}">About Us</a>
-          </li>
+          <a class="nav-link" href="{% url 'about_page' %}">About Us</a>
+        </li>
         {% if user.is_authenticated %}
 
         <li class="nav-item">
@@ -75,59 +80,59 @@
 
 
   <!-- stopka-->
-<hr style="margin-top:50px;    border: 0;
+  <hr style="margin-top:50px;    border: 0;
 height: 0;
 border-top: 1px solid rgba(0, 0, 0, 0.1);
 border-bottom: 1px solid rgba(255, 255, 255, 0.3);">
 
-<!-- Footer -->
-<footer class="page-footer font-small bg-white">
+  <!-- Footer -->
+  <footer class="page-footer font-small bg-white">
 
-  <!-- Footer Links -->
-  <div class="container">
+    <!-- Footer Links -->
+    <div class="container">
 
-    <!-- Grid row-->
-    <div class="row text-center d-flex justify-content-center mb-3">
+      <!-- Grid row-->
+      <div class="row text-center d-flex justify-content-center mb-3">
 
-      <!-- Grid column -->
-      <div class="col-md-2 mb-4 mt-5">
-        <h6 class="text-uppercase font-weight-bold">
-          <a href="{% url 'about_page' %}" class="text-primary">About us</a>
-        </h6>
+        <!-- Grid column -->
+        <div class="col-md-2 mb-4 mt-5">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="{% url 'about_page' %}" class="text-primary">About us</a>
+          </h6>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 mb-4 mt-5">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="{% url 'exercise_list' %}" class="text-primary">Exercises</a>
+          </h6>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 mb-4 mt-5">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="{% url 'contact_page' %}" class="text-primary">Contact</a>
+          </h6>
+        </div>
+        <!-- Grid column -->
+
       </div>
-      <!-- Grid column -->
+      <!-- Grid row-->
 
-      <!-- Grid column -->
-      <div class="col-md-2 mb-4 mt-5">
-        <h6 class="text-uppercase font-weight-bold">
-          <a href="{% url 'exercise_list' %}" class="text-primary">Exercises</a>
-        </h6>
-      </div>
-      <!-- Grid column -->
-
-      <!-- Grid column -->
-      <div class="col-md-2 mb-4 mt-5">
-        <h6 class="text-uppercase font-weight-bold">
-          <a href="{% url 'contact_page' %}" class="text-primary">Contact</a>
-        </h6>
-      </div>
-      <!-- Grid column -->
 
     </div>
-    <!-- Grid row-->
+    <!-- Footer Links -->
 
+    <!-- Copyright -->
+    <div class="footer-copyright text-center">© 2018 Copyright:
+      <a href="{% url 'home_page' %}"> Gymbuddy.com</a>
+    </div>
+    <!-- Copyright -->
 
-  </div>
-  <!-- Footer Links -->
-
-  <!-- Copyright -->
-  <div class="footer-copyright text-center">© 2018 Copyright:
-    <a href="{% url 'home_page' %}"> Gymbuddy.com</a>
-  </div>
-  <!-- Copyright -->
-
-</footer>
-<!-- Footer -->
+  </footer>
+  <!-- Footer -->
 
 </body>
 
