@@ -1,6 +1,6 @@
 {% extends 'workout_buddy/base.html' %}
 {% block content %}
-
+{% load staticfiles %} 
 <section class="Material-contact-section section-padding section-dark ">
 
     <div class="container">
@@ -62,8 +62,7 @@
                     </thead>
                     <tbody>
                         {% for exercise in exercises %}
-                        <tr 
-                           >
+                        <tr>
                             <td style="height:50px">{{ exercise.name }}</th>
                             <td style="text-transform: uppercase;">
 
@@ -72,17 +71,20 @@
                                 {% endfor %}
 
                             </td>
-                            <td >{{ exercise.type }}</td>
+                            <td>{{ exercise.type }}</td>
 
                             <td>{{ exercise.major_muscule }}</td>
                             <td>{{ exercise.minior_muscule }}</td>
 
                             <td>
                                 {% if exercise.example %}
-                                <a href="{{ exercise.example.url|default_if_none:'#' }}" data-lightbox="{{ exercise.example.url|default_if_none:'#' }}">
-                                <img src="{{ exercise.example.url|default_if_none:'#' }}" width="auto" height="80"
-                                    style="border-radius: 5px;  border: 1px solid rgb(209, 209, 209);"/></a></td>
-                                {% endif %}
+                                <a href="{{ exercise.example.url|default_if_none:'#' }}"
+                                    data-lightbox="{{ exercise.example.url|default_if_none:'#' }}">
+                                    <img class="lazy" src="{% static 'images/placeholder-image.gif' %}"
+                                        data-original="{{ exercise.example.url|default_if_none:'#' }}" width="auto"
+                                        height="80"
+                                        style="border-radius: 5px;  border: 1px solid rgb(209, 209, 209);" /></a></td>
+                            {% endif %}
 
                             <td style="width:150px; max-width: 150px;">{{ exercise.description|default:"" }}</td>
                             <td style="width:150px; max-width: 150px;">{{ exercise.modification|default:"" }}</td>
