@@ -80,8 +80,7 @@
                                 {% if exercise.example %}
                                 <a href="{{ exercise.example.url|default_if_none:'#' }}"
                                     data-lightbox="{{ exercise.example.url|default_if_none:'#' }}">
-                                    <img class="lazy" src="{% static 'images/placeholder-image.gif' %}"
-                                        data-original="{{ exercise.example.url|default_if_none:'#' }}" width="auto"
+                                    <img src="{{ exercise.example.url|default_if_none:'#' }}" width="auto"
                                         height="80"
                                         style="border-radius: 5px;  border: 1px solid rgb(209, 209, 209);" /></a></td>
                             {% endif %}
