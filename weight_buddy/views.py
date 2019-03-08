@@ -1,6 +1,10 @@
 import csv,io
 from django.contrib import messages
 from django.contrib.auth.decorators import permission_required
+from django.core.mail import send_mail
+from django.conf import settings
+
+
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
@@ -88,3 +92,17 @@ def exercises_upload(request):
         )
     context = {}
     return render(request, template, context)
+
+def index(request):
+
+	if request.method == 'POST':
+		message = request.POST['message']
+		context = {'name':'Dennis', 'email':'dennis@ivpath.com',  'message':message}
+		template = render_to_string('app/email_template.html', context)
+
+		send_mail('Contact Form',
+		 template, 
+		 settings.EMAIL_HOST_USER,
+		 ['piotrszewc.pl@gmail.com'], 
+		 fail_silently=False)
+	return render(request, 'app/index.html')

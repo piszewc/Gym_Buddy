@@ -11,7 +11,8 @@ urlpatterns = [
     path('exercises/<int:pk>/', views.exercise_detail, name='exercise_detail'),
     path('exercises/new', views.exercise_new, name='exercise_new'),
     path('exercises/<int:pk>/edit/', views.exercise_edit, name='exercise_edit'),
-    
+
+
     path('contact/', views.contact_page, name='contact_page'),
     path('about/', views.about_page, name='about_page'),
 

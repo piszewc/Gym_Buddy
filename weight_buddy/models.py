@@ -72,7 +72,7 @@ class ExercisesDetail(models.Model):
 	modification = models.CharField(max_length=1000,blank=True, null=True)
 
 	example = models.ImageField(upload_to='exercise_video/', blank=True, null=True)
-
+	
 	created_date = models.DateTimeField(
             default=timezone.now)
 	published_date = models.DateTimeField(blank=True, null=True)
