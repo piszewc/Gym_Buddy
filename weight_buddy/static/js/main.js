@@ -11,12 +11,6 @@ $(document).ready(function () {
         $("span", this).text("Thanks!");
     });
 
-    $("#form-submit").click(function () {
-        $("button").removeClass("btn-primary");
-        $(this).addClass("btn-success");
-        $("span", this).text("Thanks!");
-    });
-
 });
 
 jQuery(function () {
