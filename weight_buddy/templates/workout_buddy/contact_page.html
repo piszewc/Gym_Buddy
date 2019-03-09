@@ -29,7 +29,9 @@
                 <h1>CONTACT US</h1>
                 <p>PLEASE TELL US HOW WE CAN HELP YOU:</p>
 
-                <form class="shake" role="form" method="post" id="contactForm" name="contact-form" data-toggle="validator">
+                <form class="shake" role="form" method="post" id="contactForm" action="{% url 'contact_page' %}" name="contact-form" data-toggle="validator">
+                    {% csrf_token %}
+
                     <!-- Name -->
                     <div class="form-group label-floating">
                         <label class="control-label" for="name">Name</label>
@@ -57,8 +59,8 @@
                     <!-- Form Submit -->
                     <div class="form-submit mt-5">
                         <button class="btn btn-primary" type="submit" id="form-submit"><i class="material-icons mdi mdi-message-outline"></i>
-                            Send Message</button>
-                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                            <span>Send Message</span></button>
+                        <div id="msgSubmit" class="hidden"><p><br>We will contact you shortly</p</div>
                         <div class="clearfix"></div>
                     </div>
                 </form>

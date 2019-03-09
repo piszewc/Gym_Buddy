@@ -1,84 +1,91 @@
-$(document).ready(function() {
-    $("#newsletter_button").click(function(){
+$(document).ready(function () {
+    $("#newsletter_button").click(function () {
         $("button").removeClass("btn-primary");
         $("span", this).text("Thanks!");
         $(this).addClass("btn-success");
     });
 
-    $("#newsletter_button_final").click(function(){
+    $("#newsletter_button_final").click(function () {
         $("button").removeClass("btn-outline-primary");
         $(this).addClass("btn-outline-success");
         $("span", this).text("Thanks!");
     });
+
+    $("#form-submit").click(function () {
+        $("button").removeClass("btn-primary");
+        $(this).addClass("btn-success");
+        $("span", this).text("Thanks!");
+    });
+
 });
 
 jQuery(function () {
-	jQuery('#type, #major_muscule, #minior_muscule').select2();
+    jQuery('#type, #major_muscule, #minior_muscule').select2();
 
-	jQuery("#type").on("select2:select", function (e) {
+    jQuery("#type").on("select2:select", function (e) {
 
-		var input, filter, table, tr, td, i, txtValue;
-		input = document.getElementById("type");
-		filter = input.value.toUpperCase();
-		table = document.getElementById("exercise-list-html");
-		tr = table.getElementsByTagName("tr");
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("type");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("exercise-list-html");
+        tr = table.getElementsByTagName("tr");
 
-		// Loop through all table rows, and hide those who don't match the search query
-		for (i = 0; i < tr.length; i++) {
-			td = tr[i].getElementsByTagName("td")[2];
-			if (td) {
-				txtValue = td.textContent || td.innerText;
-				if (txtValue.toUpperCase().indexOf(filter) > -1) {
-					tr[i].style.display = "";
-				} else {
-					tr[i].style.display = "none";
-				}
-			}
-		}
-	});
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    });
 
 
-	jQuery("#major_muscule").on("select2:select", function (e) {
-		var input, filter, table, tr, td, i, txtValue;
-		input = document.getElementById("major_muscule");
-		filter = input.value.toUpperCase();
-		table = document.getElementById("exercise-list-html");
-		tr = table.getElementsByTagName("tr");
+    jQuery("#major_muscule").on("select2:select", function (e) {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("major_muscule");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("exercise-list-html");
+        tr = table.getElementsByTagName("tr");
 
-		// Loop through all table rows, and hide those who don't match the search query
-		for (i = 0; i < tr.length; i++) {
-			td = tr[i].getElementsByTagName("td")[3];
-			if (td) {
-				txtValue = td.textContent || td.innerText;
-				if (txtValue.toUpperCase().indexOf(filter) > -1) {
-					tr[i].style.display = "";
-				} else {
-					tr[i].style.display = "none";
-				}
-			}
-		}
-	});
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[3];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    });
 
-	jQuery("#minior_muscule").on("select2:select", function (e) {
-		var input, filter, table, tr, td, i, txtValue;
-		input = document.getElementById("minior_muscule");
-		filter = input.value.toUpperCase();
-		table = document.getElementById("exercise-list-html");
-		tr = table.getElementsByTagName("tr");
+    jQuery("#minior_muscule").on("select2:select", function (e) {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("minior_muscule");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("exercise-list-html");
+        tr = table.getElementsByTagName("tr");
 
-		// Loop through all table rows, and hide those who don't match the search query
-		for (i = 0; i < tr.length; i++) {
-			td = tr[i].getElementsByTagName("td")[4];
-			if (td) {
-				txtValue = td.textContent || td.innerText;
-				if (txtValue.toUpperCase().indexOf(filter) > -1) {
-					tr[i].style.display = "";
-				} else {
-					tr[i].style.display = "none";
-				}
-			}
-		}
-	});
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[4];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    });
 
 });
 
@@ -271,25 +278,25 @@ jQuery(function () {
                     n = I.scrollLeft();
                 return b = I.scrollTop(),
 
-                function (k) {
-                    if ("windowScroll" == k ? (l = j.scrollTop(), m = j.scrollLeft()) : "containerScroll" == k ? (b = I.scrollTop(), n = I.scrollLeft()) : "init" != k && (l = j.scrollTop(), m = j.scrollLeft(), b = I.scrollTop(), n = I.scrollLeft()), !h || !(0 > l || 0 > m)) {
-                        if (R) r("windowScrollDone" == k ? !0 : !1);
-                        else if ("windowScrollDone" == k) return null;
-                        g = z.offset(), L && M && (g.top += d);
-                        var o, s, t = z.outerHeight();
-                        if (O && J) {
-                            if (c >= b) {
-                                var u = c - b;
-                                o = u > 0 ? u : 0
-                            } else o = P ? 0 : b;
-                            s = i
-                        } else !O && J ? (l > a + t + e ? o = t - f + e : g.top > l + C ? (o = 0, q()) : (o = C + l - g.top + c + (M ? d : 0), p()), s = 0) : O && !J ? (c > b || b - c > t ? (o = g.top - l, q()) : (o = g.top + b - l - c, p()), s = g.left + n - m) : O || J || (l > a + t + e ? o = t + C - l + a + e : g.top > l + C ? (o = g.top - l, p()) : o = C, s = g.left - m);
-                        return {
-                            top: o,
-                            left: s
+                    function (k) {
+                        if ("windowScroll" == k ? (l = j.scrollTop(), m = j.scrollLeft()) : "containerScroll" == k ? (b = I.scrollTop(), n = I.scrollLeft()) : "init" != k && (l = j.scrollTop(), m = j.scrollLeft(), b = I.scrollTop(), n = I.scrollLeft()), !h || !(0 > l || 0 > m)) {
+                            if (R) r("windowScrollDone" == k ? !0 : !1);
+                            else if ("windowScrollDone" == k) return null;
+                            g = z.offset(), L && M && (g.top += d);
+                            var o, s, t = z.outerHeight();
+                            if (O && J) {
+                                if (c >= b) {
+                                    var u = c - b;
+                                    o = u > 0 ? u : 0
+                                } else o = P ? 0 : b;
+                                s = i
+                            } else !O && J ? (l > a + t + e ? o = t - f + e : g.top > l + C ? (o = 0, q()) : (o = C + l - g.top + c + (M ? d : 0), p()), s = 0) : O && !J ? (c > b || b - c > t ? (o = g.top - l, q()) : (o = g.top + b - l - c, p()), s = g.left + n - m) : O || J || (l > a + t + e ? o = t + C - l + a + e : g.top > l + C ? (o = g.top - l, p()) : o = C, s = g.left - m);
+                            return {
+                                top: o,
+                                left: s
+                            }
                         }
                     }
-                }
             }
 
             function w() {
@@ -429,35 +436,35 @@ jQuery(function () {
     }
 }(jQuery),
 
-function (a) {
-    a.floatThead = a.floatThead || {}, a.floatThead._ = window._ || function () {
-        var b = {}, c = Object.prototype.hasOwnProperty,
-            d = ["Arguments", "Function", "String", "Number", "Date", "RegExp"];
-        return b.has = function (a, b) {
-            return c.call(a, b)
-        }, b.keys = function (a) {
-            if (a !== Object(a)) throw new TypeError("Invalid object");
-            var c = [];
-            for (var d in a) b.has(a, d) && c.push(d);
-            return c
-        }, a.each(d, function () {
-            var a = this;
-            b["is" + a] = function (b) {
-                return Object.prototype.toString.call(b) == "[object " + a + "]"
-            }
-        }), b.debounce = function (a, b, c) {
-            var d, e, f, g, h;
-            return function () {
-                f = this, e = arguments, g = new Date;
-                var i = function () {
-                    var j = new Date - g;
-                    b > j ? d = setTimeout(i, b - j) : (d = null, c || (h = a.apply(f, e)))
-                }, j = c && !d;
-                return d || (d = setTimeout(i, b)), j && (h = a.apply(f, e)), h
-            }
-        }, b
-    }()
-}(jQuery);
+    function (a) {
+        a.floatThead = a.floatThead || {}, a.floatThead._ = window._ || function () {
+            var b = {}, c = Object.prototype.hasOwnProperty,
+                d = ["Arguments", "Function", "String", "Number", "Date", "RegExp"];
+            return b.has = function (a, b) {
+                return c.call(a, b)
+            }, b.keys = function (a) {
+                if (a !== Object(a)) throw new TypeError("Invalid object");
+                var c = [];
+                for (var d in a) b.has(a, d) && c.push(d);
+                return c
+            }, a.each(d, function () {
+                var a = this;
+                b["is" + a] = function (b) {
+                    return Object.prototype.toString.call(b) == "[object " + a + "]"
+                }
+            }), b.debounce = function (a, b, c) {
+                var d, e, f, g, h;
+                return function () {
+                    f = this, e = arguments, g = new Date;
+                    var i = function () {
+                        var j = new Date - g;
+                        b > j ? d = setTimeout(i, b - j) : (d = null, c || (h = a.apply(f, e)))
+                    }, j = c && !d;
+                    return d || (d = setTimeout(i, b)), j && (h = a.apply(f, e)), h
+                }
+            }, b
+        }()
+    }(jQuery);
 
 
 

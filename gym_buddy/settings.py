@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '8iumy42^y8#esy+5sas0$08z0z&=1h))b2v&_uu7)#&#qppe&_'
 
-EMAIL_HOST = 'smtp.zoho.com'
-EMAIL_HOST_USER = '############'
-EMAIL_HOST_PASSWORD = '##########'
+EMAIL_HOST = 'smtp.zoho.eu'
+EMAIL_HOST_USER = 'piotrszewc.pl@gmail.com'
+EMAIL_HOST_PASSWORD = 'txa7v7shFAdvaEB'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -45,8 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'weight_buddy',
-    'bootstrap4',
+   	'weight_buddy',
     'multiselectfield',
 
 ]
@@ -132,4 +131,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'weight_buddy/media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'weight_buddy/media')

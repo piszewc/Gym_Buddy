@@ -1,10 +1,11 @@
-import csv,io
+import csv
+import io
 from django.contrib import messages
 from django.contrib.auth.decorators import permission_required
 from django.core.mail import send_mail
 from django.conf import settings
 
-
+from django.template.loader import render_to_string
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
@@ -12,24 +13,25 @@ from .models import ExercisesDetail
 from .forms import ExercisesForm
 
 
-
 # Create your views here.
 def home_page(request):
     return render(request, 'workout_buddy/home_page.html', {'nbar': 'home_page'})
 
-def contact_page(request):
-    return render(request, 'workout_buddy/contact_page.html', {'nbar': 'contact_page'})
 
 def about_page(request):
     return render(request, 'workout_buddy/about_page.html', {'nbar': 'about_page'})
 
+
 def exercise_list(request):
-    exercises = ExercisesDetail.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    exercises = ExercisesDetail.objects.filter(
+        published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'exercises/exercise_list.html', {'exercises': exercises, 'nbar': 'exercise_list'})
+
 
 def exercise_detail(request, pk):
     exercise = get_object_or_404(ExercisesDetail, pk=pk)
-    return render(request, 'exercises/exercise_detail.html', {'exercise': exercise})    
+    return render(request, 'exercises/exercise_detail.html', {'exercise': exercise})
+
 
 def exercise_new(request):
     if request.method == "POST":
@@ -43,7 +45,8 @@ def exercise_new(request):
     else:
         form = ExercisesForm()
     return render(request, 'exercises/exercise_edit.html', {'form': form})
-    
+
+
 def exercise_edit(request, pk):
     exercise = get_object_or_404(ExercisesDetail, pk=pk)
     if request.method == "POST":
@@ -80,29 +83,28 @@ def exercises_upload(request):
     next(io_string)
     for column in csv.reader(io_string, delimiter=',', quotechar='"'):
         _, created = ExercisesDetail.objects.update_or_create(
-        author = request.user,
-        name = column[1],
-        type = column[2],
-        major_muscule = column[3],
-        minior_muscule = column[4],
-        example = column[5],
-        description = column[6],
-        modification = column[7],
-        published_date = "2019-01-17 22:31:44.781964" 
+            author=request.user,
+            name=column[1],
+            type=column[2],
+            major_muscule=column[3],
+            minior_muscule=column[4],
+            example=column[5],
+            description=column[6],
+            modification=column[7],
+            published_date="2019-01-17 22:31:44.781964"
         )
     context = {}
     return render(request, template, context)
 
-def index(request):
 
-	if request.method == 'POST':
-		message = request.POST['message']
-		context = {'name':'Dennis', 'email':'dennis@ivpath.com',  'message':message}
-		template = render_to_string('app/email_template.html', context)
-
-		send_mail('Contact Form',
-		 template, 
-		 settings.EMAIL_HOST_USER,
-		 ['piotrszewc.pl@gmail.com'], 
-		 fail_silently=False)
-	return render(request, 'app/index.html')
+def contact_page(request):
+    if request.method == 'POST':
+        message = request.POST['message']
+        name = request.POST['name']
+        subject = request.POST['subject']
+        email = request.POST['email']
+        context = {'name': name, 'subject': subject,'email': email,  'message': message}
+        template = render_to_string('workout_buddy/email_template.html', context)
+        send_mail('Contact Form', template, settings.EMAIL_HOST_USER,['pszewc@zoho.eu'], fail_silently=False)
+        
+    return render(request, 'workout_buddy/contact_page.html', {'nbar': 'contact_page'})
