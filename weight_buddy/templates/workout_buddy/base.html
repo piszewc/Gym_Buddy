@@ -71,20 +71,13 @@
 
   {% endblock %}
 
-  <div class="main">
-
-    {% block content %}
+     {% block content %}
 
     {% endblock %}
 
-  </div>
-
 
   <!-- stopka-->
-  <hr style="margin-top:50px;    border: 0;
-height: 0;
-border-top: 1px solid rgba(0, 0, 0, 0.1);
-border-bottom: 1px solid rgba(255, 255, 255, 0.3);">
+  <hr class="featurette-divider">
 
   <!-- Footer -->
   <footer class="page-footer font-small bg-white">
@@ -96,7 +89,7 @@ border-bottom: 1px solid rgba(255, 255, 255, 0.3);">
       <div class="row text-center d-flex justify-content-center mb-3">
 
         <!-- Grid column -->
-        <div class="col-md-2 mb-4 mt-5">
+        <div class="col-md-2 mb-4">
           <h6 class="text-uppercase font-weight-bold">
             <a href="{% url 'about_page' %}" class="text-primary">About us</a>
           </h6>
@@ -104,7 +97,7 @@ border-bottom: 1px solid rgba(255, 255, 255, 0.3);">
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-2 mb-4 mt-5">
+        <div class="col-md-2 mb-4">
           <h6 class="text-uppercase font-weight-bold">
             <a href="{% url 'exercise_list' %}" class="text-primary">Exercises</a>
           </h6>
@@ -112,7 +105,7 @@ border-bottom: 1px solid rgba(255, 255, 255, 0.3);">
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-2 mb-4 mt-5">
+        <div class="col-md-2 mb-4">
           <h6 class="text-uppercase font-weight-bold">
             <a href="{% url 'contact_page' %}" class="text-primary">Contact</a>
           </h6>
