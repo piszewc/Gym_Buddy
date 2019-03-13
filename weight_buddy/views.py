@@ -91,6 +91,7 @@ def exercises_upload(request):
             example=column[5],
             description=column[6],
             modification=column[7],
+            example_thumbnail=column[9],
             published_date="2019-01-17 22:31:44.781964"
         )
     context = {}

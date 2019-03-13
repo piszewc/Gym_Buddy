@@ -72,7 +72,8 @@ class ExercisesDetail(models.Model):
 	modification = models.CharField(max_length=1000,blank=True, null=True)
 
 	example = models.ImageField(upload_to='exercise_video/', blank=True, null=True)
-	
+	example_thumbnail = models.ImageField(upload_to='exercise_video/thumbnail/', blank=True, null=True)
+
 	created_date = models.DateTimeField(
             default=timezone.now)
 	published_date = models.DateTimeField(blank=True, null=True)
@@ -85,7 +86,6 @@ class ExercisesDetail(models.Model):
 
 	def __str__(self):
 		return self.name	
-
 
 class UserDetailsExercise(models.Model):
 	author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
