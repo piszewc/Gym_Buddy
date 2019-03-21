@@ -13,14 +13,6 @@ $(document).ready(function () {
 
 });
 
-$(document).ready(function () {
-    $('#exercise-list-html').DataTable({
-    "scrollY": "200px",
-    "scrollCollapse": true,
-    });
-    $('.dataTables_length').addClass('bs-select');
-    });
-    
 
 jQuery(function () {
     jQuery('#type, #major_muscule, #minior_muscule').select2();
