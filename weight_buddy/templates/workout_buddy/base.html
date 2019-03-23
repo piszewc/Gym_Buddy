@@ -3,7 +3,7 @@
 {% load staticfiles %}
 
 <head>
-  
+
   <meta charset="utf-8">
   <meta name="title" content="Workout101 - Online exercise library, Articles and Online Coaching">
   <meta name="description" content="Free online exercise library and workout planner. Plan and meet your workout goals, achieve your fitness goals. Sign up today!">
@@ -29,7 +29,15 @@
   <link rel="stylesheet" href="{% static 'css/lightbox.css' %}">
   <script type='text/javascript' src="{% static 'js/lightbox.js' %}"></script>
 
-
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136760062-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'UA-136760062-1');
+  </script>
 
 </head>
 
