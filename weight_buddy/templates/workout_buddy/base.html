@@ -68,11 +68,17 @@
         <li class="nav-item {% if nbar == 'about_page' %}active{% endif %}">
           <a class="nav-link" href="{% url 'about_page' %}">About Us</a>
         </li>
+        <li class="nav-item {% if nbar == 'post_list' %}active{% endif %}">
+          <a class="nav-link" href="{% url 'post_list' %}">Blog</a>
+        </li>
         {% if user.is_authenticated %}
 
         <li class="nav-item">
           <a class="nav-link" href="{% url 'exercise_new' %}">Add New Exercises</a>
         </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'post_new' %}">Add Post</a>
+      </li>
         {% endif %}
 
       </ul>

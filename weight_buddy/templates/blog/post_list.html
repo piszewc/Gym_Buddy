@@ -1,0 +1,28 @@
+{% extends 'workout_buddy/base.html' %}
+
+{% block content %}
+
+<section class="Material-contact-section section-padding section-dark ">
+
+    <div class="container">
+        <div class="col-md-12 mt-5">
+            <h1 class="text-primary">Blog</h1><br>
+
+            {% for post in posts %}
+            <hr>
+            <div class="post mt-5">
+                {% if post.image %}
+                <a class="" href="{% url 'post_detail' pk=post.pk %}"><img class="rounded img-fluid" src="{{ post.image.url|default_if_none:'#' }}" style=" width:900px;max-height: 370px;"/></a>
+                            {% endif %}
+                <h2 class="mt-3"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+                <p class="mt-2">{{ post.text|slice:":300"|linebreaksbr}}...</p>
+                <p class="mb-5"><a href="{% url 'post_detail' pk=post.pk %}">Read More »</a></p>
+            </div>
+        {% endfor %}
+    
+
+        </div>
+    </div>
+   </section>
+
+{% endblock %}

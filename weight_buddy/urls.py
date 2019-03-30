@@ -16,4 +16,10 @@ urlpatterns = [
     path('about/', views.about_page, name='about_page'),
 
     path('upload-csv/', views.exercises_upload, name="exercises_upload"),
+
+    path('blog/', views.post_list, name='post_list'),
+    path('blog/post/<int:pk>/', views.post_detail, name='post_detail'),
+    path('blog/post/<int:pk>/edit/', views.post_edit, name='post_edit'),
+    path('blog/post/new/', views.post_new, name='post_new'),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

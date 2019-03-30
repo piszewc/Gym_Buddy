@@ -5,6 +5,7 @@ from .models import Equipment
 from .models import UserDetailsExercise
 from .models import Training
 from .models import WorkOut
+from .models import Post
 
 class ExercisesForm(forms.ModelForm):
 
@@ -36,3 +37,9 @@ class WorkoutForm(forms.Form):
     class Meta:
         model = WorkOut
         fields = ('training','name','notes')
+
+class PostForm(forms.ModelForm):
+
+    class Meta:
+        model = Post
+        fields = ('title', 'text', 'image')

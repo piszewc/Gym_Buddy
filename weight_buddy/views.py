@@ -12,8 +12,12 @@ from django.utils import timezone
 from .models import ExercisesDetail
 from .forms import ExercisesForm
 
+from .models import Post
+from .forms import PostForm
 
 # Create your views here.
+
+
 def home_page(request):
     return render(request, 'workout_buddy/home_page.html', {'nbar': 'home_page'})
 
@@ -104,8 +108,51 @@ def contact_page(request):
         name = request.POST['name']
         subject = request.POST['subject']
         email = request.POST['email']
-        context = {'name': name, 'subject': subject,'email': email,  'message': message}
-        template = render_to_string('workout_buddy/email_template.html', context)
-        send_mail('Contact Form', template, settings.EMAIL_HOST_USER,['pszewc@zoho.eu'], fail_silently=False)
-        
+        context = {'name': name, 'subject': subject,
+                   'email': email,  'message': message}
+        template = render_to_string(
+            'workout_buddy/email_template.html', context)
+        send_mail('Contact Form', template, settings.EMAIL_HOST_USER,
+                  ['pszewc@zoho.eu'], fail_silently=False)
+
     return render(request, 'workout_buddy/contact_page.html', {'nbar': 'contact_page'})
+
+
+def post_list(request):
+    posts = Post.objects.filter(
+        published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'blog/post_list.html', {'posts': posts})
+
+
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'blog/post_detail.html', {'post': post})
+
+
+def post_new(request):
+    if request.method == "POST":
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = PostForm()
+    return render(request, 'blog/post_edit.html', {'form': form})
+
+
+def post_edit(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'blog/post_edit.html', {'form': form})
