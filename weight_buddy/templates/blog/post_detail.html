@@ -15,7 +15,7 @@
                 <img src="{{ post.image.url|default_if_none:'#' }}" style=" width:900px;max-height: 370px;"
                     class="rounded img-fluid" /></a>
                 {% endif %}
-                <h2 class="mt-3">{{ post.title }}</h2>
+                <h2 class="mt-3 text-primary">{{ post.title }}</h2>
                 <p class="mt-2">{{ post.text|linebreaksbr }}</p>
 
                 {% if post.published_date %}
