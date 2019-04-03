@@ -64,7 +64,7 @@
                     <tbody>
                         {% for exercise in exercises %}
                         <tr>
-                            <td style="height:50px">{{ exercise.name }}</th>
+                            <td style="height:50px"><a href="{% url 'exercise_detail' pk=exercise.pk %}">{{ exercise.name }}</a></th>
                             <td style="text-transform: uppercase;">
 
                                 {% for item in exercise.equipment.all %}
