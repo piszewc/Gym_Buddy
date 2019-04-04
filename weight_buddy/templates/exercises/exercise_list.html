@@ -28,8 +28,8 @@
                     </thead>
                     <tbody>
                         {% for exercise in exercises %}
-                        <tr>
-                            <td style="height:50px"><a href="{% url 'exercise_detail' pk=exercise.pk %}">{{ exercise.name }}</a></th>
+                        <tr >
+                            <td style="max-height:50px"><a href="{% url 'exercise_detail' pk=exercise.pk %}">{{ exercise.name }}</a></th>
                             <td style="text-transform: uppercase;">
 
                                 {% for item in exercise.equipment.all %}
@@ -51,8 +51,8 @@
                                         style="border-radius: 5px;  border: 1px solid rgb(209, 209, 209);" /></a></td>
                             {% endif %}
 
-                            <td style="max-width: 150px;">{{ exercise.description|default:"" }}</td>
-                            <td style="max-width: 150px;">{{ exercise.modification|default:"" }}</td>
+                            <td class="item-note" style="max-width: 150px;"><div class="ellipsis">{{ exercise.description|default:"" }}</div></td>
+                            <td class="item-note" style="max-width: 150px;"><div class="ellipsis">{{ exercise.modification|default:"" }}</div></td>
 
                         </tr>
                         {% endfor %}

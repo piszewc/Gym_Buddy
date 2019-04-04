@@ -13,12 +13,11 @@ $(document).ready(function () {
 
 });
 
-$(document).ready(function () {
+$(document).ready(function() {
     $('#exercise-list-html').DataTable({
 
         "scrollX": true,
-        "scrollY": "200px",
-        "scrollCollapse": true,
-        "paging": false
+        scrollY:        '55vh',
+        scrollCollapse: true,
     });
-});
+} );
