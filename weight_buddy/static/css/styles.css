@@ -111,8 +111,3 @@ h1,h2,h3,h4,h5 {
     display: none;
 }
 
-table.floatThead-table {
-  border-top: none;
-  border-bottom: none;
-  background-color: #fff;
-}
