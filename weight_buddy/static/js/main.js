@@ -17,7 +17,16 @@ $(document).ready(function() {
     $('#exercise-list-html').DataTable({
 
         "scrollX": true,
-        scrollY:        '55vh',
-        scrollCollapse: true,
+       
     });
+    
 } );
+var table = $('#exercise-list-html').DataTable({}) ;
+
+table.on('page.dt', function() {
+    $('html, body').animate({
+      scrollTop: $(".dataTables_wrapper").offset().top
+    }, 'slow');
+  
+    $('thead tr th:first-child').focus().blur();
+  });
