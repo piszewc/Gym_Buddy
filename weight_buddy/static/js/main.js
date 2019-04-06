@@ -18,12 +18,11 @@ $(document).ready(function() {
     });
     
 } );
-var table = $('#exercise-list-html').DataTable({}) ;
 
-table.on('page.dt', function() {
+var table = $('#exercise-list-html').DataTable()  
+
+$('#exercise-list-html').on( 'page.dt', function () {
     $('html, body').animate({
-      scrollTop: $(".dataTables_wrapper").offset().top
-    }, 'slow');
-  
-    $('thead tr th:first-child').focus().blur();
-  });
+        scrollTop: 0
+    }, 200);        
+});
