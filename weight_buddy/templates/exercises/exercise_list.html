@@ -15,17 +15,29 @@
             <div class="col-md-10 mt-2">
                 <table id='exercise-list-html' class="table hover table-striped">
                     <thead>
-                        <tr >
-                            <th class="pt-4">Name</th>
+                        <tr>
+                            <th>Name</th>
                             <th>Equipment</th>
                             <th>TYPES</th>
                             <th>MAJOR MUSCULE</th>
                             <th>MINIOR MUSCULE</th>
                             <th>Example</th>
-                            <th style="max-width: 150px;">Description</th>
-                            <th style="max-width: 150px;">Modifications</th>
+                            <th>Description</th>
+                            <th>Modifications</th>
                         </tr>
                     </thead>
+                    <tfoot>
+                        <tr >
+                            <th>Name</th>
+                            <th>Equipment</th>
+                            <th>TYPES</th>
+                            <th>MAJOR MUSCULE</th>
+                            <th>MINIOR MUSCULE</th>
+                            <th>Example</th>
+                            <th >Description</th>
+                            <th >Modifications</th>
+                        </tr>
+                    </tfoot>
                     <tbody>
                         {% for exercise in exercises %}
                         <tr >
@@ -51,8 +63,8 @@
                                         style="border-radius: 5px;  border: 1px solid rgb(209, 209, 209);" /></a></td>
                             {% endif %}
 
-                            <td class="item-note" style="max-width: 150px;"><div class="ellipsis">{{ exercise.description|default:"" }}</div></td>
-                            <td class="item-note" style="max-width: 150px;"><div class="ellipsis">{{ exercise.modification|default:"" }}</div></td>
+                            <td class="item-note" style="max-width: 140px;"><div class="ellipsis">{{ exercise.description|default:"" }}</div></td>
+                            <td class="item-note" style="max-width: 140px;"><div class="ellipsis">{{ exercise.modification|default:"" }}</div></td>
 
                         </tr>
                         {% endfor %}

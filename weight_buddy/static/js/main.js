@@ -14,10 +14,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function() {
-    $('#exercise-list-html').DataTable({
-
-        "scrollX": true,
-       
+    $('#exercise-list-html').DataTable({       
     });
     
 } );
