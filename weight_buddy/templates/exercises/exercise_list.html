@@ -1,6 +1,6 @@
 {% extends 'workout_buddy/base.html' %}
 {% block content %}
-{% load staticfiles %} 
+{% load staticfiles %}
 <section class="Material-contact-section section-padding section-dark ">
 
     <div class="container">
@@ -12,7 +12,7 @@
 
     <div class="container-fluid">
         <div class="row justify-content-md-center">
-            <div id='test'class="col-md-10 mt-2">
+            <div class="col-md-10 mt-2">
                 <table id='exercise-list-html' class="table hover table-striped">
                     <thead>
                         <tr>
@@ -27,21 +27,22 @@
                         </tr>
                     </thead>
                     <tfoot>
-                        <tr >
+                        <tr>
                             <th>Name</th>
                             <th>Equipment</th>
                             <th>TYPES</th>
                             <th>MAJOR MUSCULE</th>
                             <th>MINIOR MUSCULE</th>
                             <th>Example</th>
-                            <th >Description</th>
-                            <th >Modifications</th>
+                            <th>Description</th>
+                            <th>Modifications</th>
                         </tr>
                     </tfoot>
                     <tbody>
                         {% for exercise in exercises %}
-                        <tr >
-                            <td style="max-height:50px"><a href="{% url 'exercise_detail' pk=exercise.pk %}">{{ exercise.name }}</a></th>
+                        <tr>
+                            <td style="max-height:50px"><a
+                                    href="{% url 'exercise_detail' pk=exercise.pk %}">{{ exercise.name }}</a></th>
                             <td style="text-transform: uppercase;">
 
                                 {% for item in exercise.equipment.all %}
@@ -63,16 +64,20 @@
                                         style="border-radius: 5px;  border: 1px solid rgb(209, 209, 209);" /></a></td>
                             {% endif %}
 
-                            <td class="item-note" style="max-width: 140px;"><div class="ellipsis">{{ exercise.description|default:"" }}</div></td>
-                            <td class="item-note" style="max-width: 140px;"><div class="ellipsis">{{ exercise.modification|default:"" }}</div></td>
+                            <td class="item-note" style="max-width: 140px;">
+                                <div class="ellipsis">{{ exercise.description|default:"" }}</div>
+                            </td>
+                            <td class="item-note" style="max-width: 140px;">
+                                <div class="ellipsis">{{ exercise.modification|default:"" }}</div>
+                            </td>
 
                         </tr>
                         {% endfor %}
                     </tbody>
                 </table>
             </div>
-            </div>
         </div>
+    </div>
     </div>
 </section>
 
