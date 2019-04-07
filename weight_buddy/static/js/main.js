@@ -14,7 +14,9 @@ $(document).ready(function () {
 });
 
 $(document).ready(function() {
-    $('#exercise-list-html').DataTable({       
+    $('#exercise-list-html').DataTable({     
+        scrollY:        '55vh',
+        scrollCollapse: true,
     });
     
 } );
@@ -24,5 +26,6 @@ var table = $('#exercise-list-html').DataTable()
 $('#exercise-list-html').on( 'page.dt', function () {
     $('html, body').animate({
         scrollTop: 0
+
     }, 200);        
 });
