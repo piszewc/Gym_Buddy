@@ -6,7 +6,7 @@ from django.conf import settings
 
 class Equipment(models.Model):
 	name = models.CharField(max_length=100)
-	description = models.CharField(max_length=1000, blank=True, null=True)
+	execution = models.CharField(max_length=1000, blank=True, null=True)
 	image = models.ImageField(
 		upload_to='equipment_images/', blank=True, null=True)
 
@@ -71,8 +71,9 @@ class ExercisesDetail(models.Model):
         )
 
 	name = models.CharField(max_length=100)
-	description = models.CharField(max_length=1000, blank=True, null=True)
-	modification = models.CharField(max_length=1000, blank=True, null=True)
+	execution = models.CharField(max_length=1000, blank=True, null=True)
+	comments = models.CharField(max_length=1000, blank=True, null=True)
+	preparation = models.CharField(max_length=1000, blank=True, null=True) 
 
 	example = models.ImageField(
 		upload_to='exercise_video/', blank=True, null=True)

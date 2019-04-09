@@ -22,8 +22,8 @@
                             <th>MAJOR MUSCULE</th>
                             <th>MINIOR MUSCULE</th>
                             <th>Example</th>
-                            <th>Description</th>
-                            <th>Modifications</th>
+                            <th>Execution</th>
+                            <th>Comments</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -34,8 +34,8 @@
                             <th>MAJOR MUSCULE</th>
                             <th>MINIOR MUSCULE</th>
                             <th>Example</th>
-                            <th>Description</th>
-                            <th>Modifications</th>
+                            <th>Execution</th>
+                            <th>Comments</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -65,10 +65,10 @@
                             {% endif %}
 
                             <td class="item-note" style="max-width: 140px;">
-                                <div class="ellipsis">{{ exercise.description|default:"" }}</div>
+                                <div class="ellipsis">{{ exercise.execution|default:"" }}</div>
                             </td>
                             <td class="item-note" style="max-width: 140px;">
-                                <div class="ellipsis">{{ exercise.modification|default:"" }}</div>
+                                <div class="ellipsis">{{ exercise.comments|default:"" }}</div>
                             </td>
 
                         </tr>

@@ -11,13 +11,13 @@ class ExercisesForm(forms.ModelForm):
 
     class Meta:
         model = ExercisesDetail
-        fields = ('name','type','major_muscule','minior_muscule','example','description','modification','equipment','example_thumbnail')
+        fields = ('name','type','major_muscule','minior_muscule','example','execution','comments','equipment','example_thumbnail', 'preparation')
 
 class EquipmentForm(forms.ModelForm):
 
     class Meta:
         model = Equipment
-        fields = ('name','description','image')
+        fields = ('name','execution','image')
 
 class UserDetailsExerciseForm(forms.Form):
 

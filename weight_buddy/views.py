@@ -39,7 +39,7 @@ def exercise_detail(request, pk):
 
 def exercise_new(request):
     if request.method == "POST":
-        form = ExercisesForm(request.POST)
+        form = ExercisesForm(request.POST, request.FILES)
         if form.is_valid():
             exercise = form.save(commit=False)
             exercise.author = request.user
@@ -52,9 +52,9 @@ def exercise_new(request):
 
 
 def exercise_edit(request, pk):
-    exercise = get_object_or_404(ExercisesDetail, pk=pk)
+    exercise = get_object_or_404(ExercisesDetail,  pk=pk)
     if request.method == "POST":
-        form = ExercisesForm(request.POST, instance=exercise)
+        form = ExercisesForm(request.POST, request.FILES, instance=exercise)
         if form.is_valid():
             exercise = form.save(commit=False)
             exercise.author = request.user
@@ -71,7 +71,7 @@ def exercises_upload(request):
     template = "workout_buddy/exercises_upload.html"
 
     prompt = {
-        'order': 'Order of CSV should be name, type, major_muscule, minior_muscule, description, modification'
+        'order': 'Order of CSV should be name, type, major_muscule, minior_muscule, execution, comments'
     }
 
     if request.method == 'GET':
@@ -93,8 +93,8 @@ def exercises_upload(request):
             major_muscule=column[3],
             minior_muscule=column[4],
             example=column[5],
-            description=column[6],
-            modification=column[7],
+            execution=column[6],
+            comments=column[7],
             example_thumbnail=column[9],
             published_date="2019-01-17 22:31:44.781964"
         )

@@ -1,19 +1,35 @@
 {% extends 'workout_buddy/base.html' %}
 
 {% block content %}
-    <div class="post">
-        {% if user.is_authenticated %}
-            <a class="btn btn-default" href="{% url 'exercise_edit' pk=exercise.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-        {% endif %}
-        
-        <h1>{{ exercise.name }}</h1>
-        <p>{{ exercise.type }}</p>
 
-        <p>{{ exercise.major_muscule }}</p>
-        <p>{{ exercise.minior_muscule }}</p>
-            <p>{{ exercise.description|default:"" }}</p>
-            <p>{{ exercise.modification|default:"" }}</p>
+<section class="Material-contact-section section-padding section-dark ">
 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mt-5">
+                <h1>{{ exercise.name }}</h1>
+                <p>{{ exercise.type }}</p>
 
+                <p>{{ exercise.major_muscule }}</p>
+                <p>{{ exercise.minior_muscule }}</p>
+                <p>{{ exercise.execution|default:"" }}</p>
+                <p>{{ exercise.comments|default:"" }}</p>
+
+                {% if user.is_authenticated %}
+                <a class="btn btn-default" href="{% url 'exercise_edit' pk=exercise.pk %}"><span
+                        class="glyphicon glyphicon-pencil">Edit</span></a>
+                {% endif %}
+            </div>
+            <div class="col-md-6 mt-5">
+                    {% if exercise.example %}
+                    <a href="{{ exercise.example.url|default_if_none:'#' }}"
+                    data-lightbox="{{ exercise.example.url|default_if_none:'#' }}">
+                        <img src="{{ exercise.example.url|default_if_none:'#' }}" width="auto"
+                            height="360"
+                            style="border-radius: 5px;  border: 1px solid;" /></a></td>
+                {% endif %}
+            </div>
+        </div>
     </div>
+</section>
 {% endblock %}
