@@ -32,8 +32,8 @@ def exercise_list(request):
     return render(request, 'exercises/exercise_list.html', {'exercises': exercises, 'nbar': 'exercise_list'})
 
 
-def exercise_detail(request, pk):
-    exercise = get_object_or_404(ExercisesDetail, pk=pk)
+def exercise_detail(request, pk, slug):
+    exercise = get_object_or_404(ExercisesDetail, pk=pk, slug=slug)
     return render(request, 'exercises/exercise_detail.html', {'exercise': exercise})
 
 
@@ -45,14 +45,14 @@ def exercise_new(request):
             exercise.author = request.user
             exercise.published_date = timezone.now()
             exercise.save()
-            return redirect('exercise_detail', pk=exercise.pk)
+            return redirect('exercise_detail', pk=exercise.pk, slug=exercise.slug)
     else:
         form = ExercisesForm()
     return render(request, 'exercises/exercise_edit.html', {'form': form})
 
 
-def exercise_edit(request, pk):
-    exercise = get_object_or_404(ExercisesDetail,  pk=pk)
+def exercise_edit(request, pk, slug):
+    exercise = get_object_or_404(ExercisesDetail, pk=pk, slug=slug)
     if request.method == "POST":
         form = ExercisesForm(request.POST, request.FILES, instance=exercise)
         if form.is_valid():
@@ -60,7 +60,7 @@ def exercise_edit(request, pk):
             exercise.author = request.user
             exercise.published_date = timezone.now()
             exercise.save()
-            return redirect('exercise_detail', pk=exercise.pk)
+            return redirect('exercise_detail', pk=exercise.pk, slug=exercise.slug)
     else:
         form = ExercisesForm(instance=exercise)
     return render(request, 'exercises/exercise_edit.html', {'form': form})

@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from multiselectfield import MultiSelectField
 from django.conf import settings
+from django.template.defaultfilters import slugify
 
 
 class Equipment(models.Model):
@@ -71,6 +72,7 @@ class ExercisesDetail(models.Model):
         )
 
 	name = models.CharField(max_length=100)
+	slug = models.SlugField(max_length=40 , blank=True, null=True)
 	execution = models.CharField(max_length=1000, blank=True, null=True)
 	comments = models.CharField(max_length=1000, blank=True, null=True)
 	preparation = models.CharField(max_length=1000, blank=True, null=True) 
@@ -92,7 +94,12 @@ class ExercisesDetail(models.Model):
 
 	def __str__(self):
 		return self.name
-
+	
+	def save(self, *args, **kwargs):
+		if not self.id:
+			# Newly created object, so set slug
+			self.slug = slugify(self.name)
+		super(ExercisesDetail, self).save(*args, **kwargs)
 
 class UserDetailsExercise(models.Model):
 	author = models.ForeignKey('auth.User', on_delete=models.CASCADE)

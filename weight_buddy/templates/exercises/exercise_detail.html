@@ -9,20 +9,20 @@
             <div class="col-md-6 mt-5">
 
                 <h1 class="section-title text-primary">{{ exercise.name }}</h1>
-                <p ><span class="font-weight-bold">Type: </span>{{ exercise.type }}<p>
+                <p><span class="font-weight-bold">Type: </span>{{ exercise.type }}<p>
                 <p><span class="font-weight-bold">Equipment: </span>{% for item in exercise.equipment.all %}
                                 {{ item }}{% if not forloop.last %}, {% endif %}
                                 {% endfor %}</p>
-                <h2 class="section-title text-primary">Instructions</h2>
-                <h5>Preparation:</h5>
+                <h3 class="section-title text-primary">Instructions</h3>
+                <p><span class="font-weight-bold">Preparation:</span>
                 <p>{{ exercise.preparation|default:"" }}</p>
-                <h5>Execution:</h5>
+                <p><span class="font-weight-bold">Execution:</span>
                 <p>{{ exercise.execution|default:"" }}</p>
-                <h2 class="section-title text-primary">Comments</h2>
+                <h3 class="section-title text-primary">Comments</h3>
                 <p>{{ exercise.comments|default:"" }}</p>
 
                 {% if user.is_authenticated %}
-                <a class="btn btn-primary" href="{% url 'exercise_edit' pk=exercise.pk %}">Edit</a>
+                <a class="btn btn-primary" href="{% url 'exercise_edit' slug=exercise.slug pk=exercise.pk  %}">Edit</a>
                 {% endif %}
 
             </div>
@@ -35,9 +35,9 @@
                 </p>
                 {% endif %}
 
-                <h5>Major Muscile:</h5>
+                <p><span class="font-weight-bold">Major Muscile:</p></span>
                 <p>{{ exercise.major_muscule }}</p>
-                <h5>Minior Muscule:</h5>
+                <p><span class="font-weight-bold">Minior Muscule:</p></span>
                 <p>{{ exercise.minior_muscule }}</p>
             </div>
         </div>
