@@ -25,7 +25,7 @@
                 {% endif %}
                 {% if user.is_authenticated %}
                 <p>
-                    <a class="mt-3 btn btn-primary" href="{% url 'post_edit' pk=post.pk %}">Edit</a>
+                    <a class="mt-3 btn btn-primary" href="{% url 'post_edit' slug=post.slug pk=post.pk %}">Edit</a>
                 </p>
                 {% endif %}
             </div>

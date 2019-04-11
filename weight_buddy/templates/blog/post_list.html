@@ -12,11 +12,11 @@
             <hr>
             <div class="post mt-5">
                 {% if post.image %}
-                <a class="" href="{% url 'post_detail' pk=post.pk %}"><img class="rounded img-fluid" src="{{ post.image.url|default_if_none:'#' }}" style=" width:900px;max-height: 370px;"/></a>
+                <a class="" href="{% url 'post_detail' slug=post.slug pk=post.pk %}"><img class="rounded img-fluid" src="{{ post.image.url|default_if_none:'#' }}" style=" width:900px;max-height: 370px;"/></a>
                             {% endif %}
-                <h2 class="mt-3"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+                <h2 class="mt-3"><a href="{% url 'post_detail' slug=post.slug pk=post.pk %}">{{ post.title }}</a></h2>
                 <p class="mt-2">{{ post.text|slice:":300"|linebreaksbr}}...</p>
-                <p class="mb-5"><a href="{% url 'post_detail' pk=post.pk %}">Read More »</a></p>
+                <p class="mb-5"><a href="{% url 'post_detail' slug=post.slug pk=post.pk %}">Read More »</a></p>
             </div>
         {% endfor %}
     
