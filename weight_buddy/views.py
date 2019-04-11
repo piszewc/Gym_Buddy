@@ -143,7 +143,7 @@ def post_new(request):
     return render(request, 'blog/post_edit.html', {'form': form})
 
 
-def post_edit(request, pk):
+def post_edit(request, pk, slug):
     post = get_object_or_404(Post, pk=pk, slug=slug)
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES, instance=post)
