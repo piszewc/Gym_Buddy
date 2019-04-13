@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 {% load staticfiles %}
 
@@ -6,26 +5,33 @@
 
   <meta charset="utf-8">
   <meta name="title" content="Workout101 - Online exercise library, Articles and Online Coaching">
-  <meta name="execution" content="Free online exercise library and workout planner. Plan and meet your workout goals, achieve your fitness goals. Sign up today!">
+  <meta name="execution"
+    content="Free online exercise library and workout planner. Plan and meet your workout goals, achieve your fitness goals. Sign up today!">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Workout 101</title>
 
-  <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous"></script>
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab|Montserrat" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.datatables.net/v/bs4/dt-1.10.18/fh-3.1.4/sc-2.0.0/datatables.min.css" />
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+    <script type="text/javascript"
+    src="https://cdn.datatables.net/v/bs4/dt-1.10.18/fh-3.1.4/sc-2.0.0/datatables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
     integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
     integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
     crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab|Montserrat" rel="stylesheet">
 
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/fh-3.1.4/sc-2.0.0/datatables.min.css"/>
- 
-  <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/fh-3.1.4/sc-2.0.0/datatables.min.js"></script>
-  
+
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <script type='text/javascript' src="{% static 'js/main.js' %}"></script>
   <link rel="stylesheet" href="{% static 'css/lightbox.css' %}">
@@ -35,15 +41,15 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136760062-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-  
+
     gtag('config', 'UA-136760062-1');
   </script>
 
 </head>
 
-<body>
+<body data-gr-c-s-loaded="true">
 
   {% block sidebar %}
 
@@ -79,8 +85,8 @@
           <a class="nav-link" href="{% url 'exercise_new' %}">Add New Exercises</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="{% url 'post_new' %}">Add Post</a>
-      </li>
+          <a class="nav-link" href="{% url 'post_new' %}">Add Post</a>
+        </li>
         {% endif %}
 
       </ul>
@@ -89,15 +95,14 @@
 
   {% endblock %}
 
-     {% block content %}
-
+    {% block content %}
     {% endblock %}
 
 
 
 
   <!-- Footer -->
-  <footer class="mt-auto py-3 page-footer font-small bg-white">
+  <footer class="mt-auto py-3 footer font-small bg-white">
     <hr class='m-5'>
     <!-- Footer Links -->
     <div class="container ">
@@ -145,6 +150,7 @@
   </footer>
   <!-- Footer -->
 
-</body>
 
+
+</body>
 </html>
