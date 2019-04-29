@@ -30,8 +30,8 @@
                 {% if exercise.example %}
                 <p><a href="{{ exercise.example.url|default_if_none:'#' }}"
                         data-lightbox="{{ exercise.example.url|default_if_none:'#' }}">
-                        <img src="{{ exercise.example.url|default_if_none:'#' }}" width="auto" height="300"
-                            style="border-radius: 5px;  border: 1px solid;" /></a></td>
+                        <img src="{{ exercise.example.url|default_if_none:'#' }}" 
+                            style="border-radius: 5px; width:100%;border: 1px solid; " /></a></td>
                 </p>
                 {% endif %}
 
