@@ -9,8 +9,7 @@
             <h1 class="text-primary">Blog</h1><br>
 
             {% for post in posts %}
-            <hr>
-            <div class="post mt-5">
+            <div class="post">
                 {% if post.image %}
                 <a class="" href="{% url 'post_detail' slug=post.slug pk=post.pk %}"><img class="rounded img-fluid" src="{{ post.image.url|default_if_none:'#' }}" style=" width:900px;max-height: 370px;"/></a>
                             {% endif %}
